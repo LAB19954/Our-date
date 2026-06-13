@@ -274,13 +274,14 @@ import { getDatabase, ref, set, get, push, onValue, onChildAdded, update, server
 //  🔧 PASTE YOUR FIREBASE CONFIG HERE
 // ══════════════════════════════════════════════════════════════
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBJ5NfCKdANAyvTJq4O77r9spJmbOb2Z6I",
+  authDomain: "e-simulator-a96d8.firebaseapp.com",
+  databaseURL: "https://e-simulator-a96d8-default-rtdb.firebaseio.com",
+  projectId: "e-simulator-a96d8",
+  storageBucket: "e-simulator-a96d8.firebasestorage.app",
+  messagingSenderId: "391209468311",
+  appId: "1:391209468311:web:24b3993e634af7300744d2",
+  measurementId: "G-9L49S0X2YB"
 };
 // ══════════════════════════════════════════════════════════════
 
@@ -322,16 +323,22 @@ function genCode() {
 // ── CREATE ROOM ────────────────────────────────────────────────
 window.createRoom = async () => {
   if (!myRole) { showToast('pick who you are first!'); return; }
-  roomCode = genCode();
-  roomRef = ref(db, `rooms/${roomCode}`);
-  await set(roomRef, {
-    createdAt: serverTimestamp(),
-    players: { [myRole]: true },
-    hearts: 2,
-    location: null,
-    started: false
-  });
-  enterLobby();
+  try {
+    showToast('creating room...', 1500);
+    roomCode = genCode();
+    roomRef = ref(db, `rooms/${roomCode}`);
+    await set(roomRef, {
+      createdAt: serverTimestamp(),
+      players: { [myRole]: true },
+      hearts: 2,
+      location: null,
+      started: false
+    });
+    enterLobby();
+  } catch(e) {
+    showToast('error: ' + e.message, 4000);
+    console.error(e);
+  }
 };
 
 // ── JOIN ROOM ──────────────────────────────────────────────────
@@ -339,12 +346,18 @@ window.joinRoom = async () => {
   if (!myRole) { showToast('pick who you are first!'); return; }
   const code = document.getElementById('join-code-input').value.toUpperCase().trim();
   if (!code) { showToast('enter a room code!'); return; }
-  const snap = await get(ref(db, `rooms/${code}`));
-  if (!snap.exists()) { showToast('room not found 😭'); return; }
-  roomCode = code;
-  roomRef = ref(db, `rooms/${roomCode}`);
-  await update(ref(db, `rooms/${roomCode}/players`), { [myRole]: true });
-  enterLobby();
+  try {
+    showToast('joining room...', 1500);
+    const snap = await get(ref(db, `rooms/${code}`));
+    if (!snap.exists()) { showToast('room not found 😭'); return; }
+    roomCode = code;
+    roomRef = ref(db, `rooms/${roomCode}`);
+    await update(ref(db, `rooms/${roomCode}/players`), { [myRole]: true });
+    enterLobby();
+  } catch(e) {
+    showToast('error: ' + e.message, 4000);
+    console.error(e);
+  }
 };
 
 // ── LOBBY ──────────────────────────────────────────────────────
