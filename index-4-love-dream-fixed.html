@@ -1,0 +1,3330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0818">
+<title>Pranjal & Fareeza 💕</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --pink:#ff6b9d;--soft-pink:#ffc2d9;--blush:#ffe0ee;
+  --dark:#0a0614;--mid:#1a0e2a;--deep:#120820;
+  --accent:#e40026;--gold:#ffd700;--rose:#ff3878;
+  --lavender:#c8a0e8;--cream:#fff5f8;--text:#fff5f8;--green:#4ade80;
+}
+
+body{
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,107,157,.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(200,160,232,.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255,56,120,.06) 0%, transparent 70%),
+    var(--dark);
+  color:var(--text);
+  font-family:'Press Start 2P',monospace;
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  overflow-x:hidden;
+  padding-bottom:32px;
+}
+
+/* Ambient floating hearts background */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 12%, rgba(255,182,210,.9) 0%,transparent 100%),
+    radial-gradient(1px 1px at 22% 38%, rgba(255,255,255,.6) 0%,transparent 100%),
+    radial-gradient(2px 2px at 58% 8%, rgba(255,200,220,.8) 0%,transparent 100%),
+    radial-gradient(1px 1px at 78% 55%, rgba(255,255,255,.5) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 43% 78%, rgba(255,182,210,.7) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 28%, rgba(255,255,255,.6) 0%,transparent 100%),
+    radial-gradient(2px 2px at 33% 52%, rgba(255,150,200,.6) 0%,transparent 100%),
+    radial-gradient(2px 2px at 15% 65%, rgba(200,160,232,.5) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 65% 85%, rgba(255,182,210,.7) 0%,transparent 100%),
+    radial-gradient(2px 2px at 90% 70%, rgba(255,215,0,.3) 0%,transparent 100%);
+}
+
+/* ── SCREENS ── */
+.screen{position:relative;z-index:1;width:100%;max-width:520px;padding:16px;display:none;flex-direction:column;gap:14px;animation:fadeIn .5s cubic-bezier(.22,.68,0,1.2);}
+.screen.active{display:flex;}
+@media (max-width:520px){
+  .screen{padding:12px;}
+  h1{line-height:2.4;}
+  .btn{font-size:8px;}
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* ── TITLE ── */
+#s-title{align-items:center;text-align:center;padding-top:36px;gap:10px;}
+.title-emoji{font-size:42px;animation:float 2.8s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(255,107,157,.55));}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+h1{font-size:clamp(11px,3vw,16px);color:var(--pink);line-height:2.3;
+   text-shadow:0 0 20px rgba(255,107,157,.4), 3px 3px 0 #4a0020;}
+.tagline{font-family:'VT323',monospace;font-size:22px;color:var(--blush);}
+.tagline.sub{font-size:15px;color:var(--lavender);letter-spacing:1px;}
+.divider{
+  width:100%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--pink),var(--lavender),var(--pink),transparent);
+  margin:4px 0;
+  box-shadow:0 0 12px rgba(255,107,157,.3);
+}
+
+/* Floating hearts on title screen */
+.title-hearts{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.th{position:absolute;font-size:16px;animation:heartDrift linear infinite;opacity:0;}
+@keyframes heartDrift{
+  0%{opacity:0;transform:translateY(100%) scale(.6) rotate(0deg)}
+  10%{opacity:.7}
+  90%{opacity:.5}
+  100%{opacity:0;transform:translateY(-120%) scale(1.1) rotate(20deg)}
+}
+
+/* ── BUTTONS ── */
+.btn{
+  font-family:'Press Start 2P',monospace;font-size:9px;padding:13px 18px;
+  border:2px solid var(--pink);
+  background:linear-gradient(135deg, var(--mid), rgba(80,20,50,.8));
+  color:var(--cream);
+  cursor:pointer;
+  box-shadow:4px 4px 0 #4a0020, 0 0 0 rgba(255,107,157,0);
+  transition:all .1s;
+  line-height:1.6;text-align:center;
+  border-radius:6px;
+}
+.btn:hover,.btn:focus{
+  background:linear-gradient(135deg, var(--pink), var(--rose));
+  color:var(--dark);transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 #4a0020, 0 0 18px rgba(255,107,157,.35);
+  outline:none;
+}
+.btn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 #4a0020;}
+.btn.gold{
+  border-color:var(--gold);
+  background:linear-gradient(135deg, var(--mid), rgba(60,40,10,.8));
+  box-shadow:4px 4px 0 #4a3a00, 0 0 0 rgba(255,215,0,0);
+}
+.btn.gold:hover{
+  background:linear-gradient(135deg, var(--gold), #ffb830);
+  color:var(--dark);
+  box-shadow:6px 6px 0 #4a3a00, 0 0 18px rgba(255,215,0,.35);
+}
+.btn.sm{font-size:7px;padding:8px 12px;}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+
+@keyframes pulse{
+  0%,100%{box-shadow:4px 4px 0 #4a0020, 0 0 0 rgba(255,107,157,0)}
+  50%{box-shadow:4px 4px 0 #4a0020, 0 0 22px rgba(255,107,157,.5)}
+}
+.btn.pulse{animation:pulse 1.8s ease-in-out infinite;}
+
+/* ── INPUT ── */
+.field-label{font-size:7px;color:var(--lavender);margin-bottom:4px;letter-spacing:.5px;}
+input[type=text]{
+  font-family:'VT323',monospace;font-size:20px;
+  background:var(--deep);
+  border:2px solid rgba(255,194,217,.4);
+  color:var(--cream);padding:10px 12px;width:100%;outline:none;
+  border-radius:6px;
+  transition:border-color .15s, box-shadow .15s;
+}
+input[type=text]:focus{
+  border-color:var(--pink);
+  box-shadow:0 0 12px rgba(255,107,157,.25);
+}
+input[type=text]::placeholder{color:rgba(200,160,232,.4);}
+
+/* ── PANEL ── */
+.panel{
+  background:linear-gradient(145deg, rgba(26,14,42,.97), rgba(18,8,28,.97));
+  border:2px solid rgba(255,107,157,.5);
+  padding:16px;
+  box-shadow:4px 4px 0 rgba(74,0,32,.7), 0 0 24px rgba(255,107,157,.08);
+  border-radius:18px;
+  backdrop-filter:blur(12px);
+}
+.panel-title{
+  font-size:8px;color:var(--gold);margin-bottom:12px;
+  text-shadow:0 0 10px rgba(255,215,0,.3);
+  letter-spacing:.5px;
+}
+
+/* ── ROOM SCREEN ── */
+.room-code-display{
+  font-family:'VT323',monospace;font-size:52px;color:var(--gold);
+  text-align:center;letter-spacing:10px;
+  text-shadow:0 0 20px rgba(255,215,0,.4), 3px 3px 0 #4a3a00;
+  padding:14px 0;
+}
+.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;}
+.dot-waiting{background:#888;animation:dotBlink 1s step-end infinite;}
+.dot-online{background:var(--green);box-shadow:0 0 8px rgba(74,222,128,.6);}
+@keyframes dotBlink{0%,100%{opacity:1}50%{opacity:.2}}
+.player-list{display:flex;flex-direction:column;gap:6px;}
+.player-row{font-family:'VT323',monospace;font-size:18px;display:flex;align-items:center;gap:8px;}
+
+/* ── SCENE ── */
+#scene-canvas{
+  width:100%;height:180px;display:block;
+  image-rendering:pixelated;
+  border:2px solid rgba(255,107,157,.6);
+  box-shadow:4px 4px 0 #4a0020, 0 0 28px rgba(255,107,157,.15);
+  border-radius:16px;background:#03020a;
+}
+.loc-banner{
+  background:linear-gradient(90deg, rgba(26,14,42,.97), rgba(80,20,60,.97), rgba(26,14,42,.97));
+  border:2px solid rgba(255,107,157,.55);
+  padding:10px 14px;
+  font-family:'VT323',monospace;font-size:22px;
+  color:var(--gold);text-align:center;
+  box-shadow:4px 4px 0 #4a0020, 0 0 16px rgba(255,107,157,.12);
+  border-radius:14px;
+  text-shadow:0 0 12px rgba(255,215,0,.3);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.loc-banner.romance-pulse{animation:bannerPulse 1s ease-in-out 2;}
+@keyframes bannerPulse{
+  0%,100%{transform:scale(1);box-shadow:4px 4px 0 #4a0020}
+  50%{transform:scale(1.025);box-shadow:0 0 32px rgba(255,107,157,.5), 4px 4px 0 #4a0020}
+}
+
+/* ── ROMANCE FX ── */
+.romance-fx{position:fixed;inset:0;pointer-events:none;z-index:998;overflow:hidden;}
+.fx-pop{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-family:'VT323',monospace;font-size:26px;color:var(--gold);text-shadow:0 0 14px rgba(255,215,0,.6);animation:fxPop 1.3s ease-out forwards;}
+@keyframes fxPop{0%{opacity:0;transform:translate(-50%,-20%) scale(.6)}12%{opacity:1}100%{opacity:0;transform:translate(-50%,-130%) scale(1.8)}}
+.kiss-ring{position:absolute;left:50%;top:42%;width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,182,193,.95);transform:translate(-50%,-50%);animation:kissRing 1.1s ease-out forwards;}
+@keyframes kissRing{0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}15%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(18)}}
+.sparkle{position:absolute;font-size:20px;animation:sparkleFly 1.5s ease-out forwards;filter:drop-shadow(0 0 10px rgba(255,215,0,.55));}
+@keyframes sparkleFly{0%{opacity:0;transform:translateY(16px) scale(.5)}15%{opacity:1}100%{opacity:0;transform:translateY(-180px) scale(1.6)}}
+.love-cloud{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-family:'VT323',monospace;font-size:30px;color:#ffd1e0;text-shadow:0 0 14px rgba(255,107,157,.7);animation:loveCloud 1.9s ease-out forwards;}
+@keyframes loveCloud{0%{opacity:0;transform:translate(-50%,10%) scale(.7)}12%{opacity:1}100%{opacity:0;transform:translate(-50%,-130%) scale(2)}}
+
+/* ── CHAT ── */
+#chat-area{
+  height:240px;overflow-y:auto;
+  background:linear-gradient(180deg, rgba(12,6,20,.98), rgba(8,4,16,.98));
+  border:2px solid rgba(255,194,217,.35);
+  padding:12px;display:flex;flex-direction:column;gap:8px;
+  scroll-behavior:smooth;border-radius:14px;
+}
+#chat-area::-webkit-scrollbar{width:4px;}
+#chat-area::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--lavender));border-radius:4px;}
+.msg{display:flex;flex-direction:column;gap:3px;max-width:88%;}
+.msg.me{align-self:flex-end;align-items:flex-end;}
+.msg.them{align-self:flex-start;align-items:flex-start;}
+.msg.system{align-self:center;align-items:center;max-width:100%;}
+.msg-name{font-size:6px;color:var(--lavender);}
+.msg.me .msg-name{color:var(--gold);}
+.msg-bubble{
+  font-family:'VT323',monospace;font-size:18px;
+  padding:9px 13px;line-height:1.45;word-break:break-word;
+  border-radius:10px;
+}
+.msg.me .msg-bubble{
+  background:linear-gradient(135deg, var(--pink), var(--rose));
+  color:var(--dark);
+  box-shadow:2px 2px 8px rgba(255,56,120,.25);
+}
+.msg.them .msg-bubble{
+  background:linear-gradient(135deg, rgba(30,14,46,.95), rgba(22,10,36,.95));
+  border:1.5px solid rgba(255,194,217,.4);
+  color:var(--blush);
+}
+.msg.system .msg-bubble{background:transparent;color:rgba(200,160,232,.6);font-size:14px;border:none;text-align:center;}
+.msg.action-msg .msg-bubble{
+  background:linear-gradient(135deg, rgba(42,26,62,.95), rgba(30,14,50,.95));
+  border:2px solid rgba(255,215,0,.5);
+  color:var(--gold);
+  box-shadow:0 0 12px rgba(255,215,0,.1);
+}
+.msg.action-msg{align-self:center;align-items:center;max-width:100%;}
+.typing-indicator{font-family:'VT323',monospace;font-size:16px;color:var(--lavender);padding:4px 10px;display:none;opacity:.7;}
+.typing-indicator.visible{display:block;}
+
+/* ── CHAT INPUT ── */
+.chat-input-row{display:flex;gap:6px;}
+#chat-input{
+  flex:1;font-family:'VT323',monospace;font-size:20px;
+  background:var(--deep);border:2px solid rgba(255,194,217,.35);
+  color:var(--cream);padding:10px 12px;outline:none;border-radius:8px;
+  transition:border-color .15s,box-shadow .15s;
+}
+#chat-input:focus{border-color:var(--pink);box-shadow:0 0 12px rgba(255,107,157,.2);}
+#send-btn{
+  font-family:'Press Start 2P',monospace;font-size:8px;padding:10px 14px;
+  border:2px solid var(--pink);
+  background:linear-gradient(135deg, var(--pink), var(--rose));
+  color:var(--dark);cursor:pointer;border-radius:8px;
+  transition:all .1s;
+}
+#send-btn:hover{background:linear-gradient(135deg,var(--rose),#d4006e);box-shadow:0 0 14px rgba(255,107,157,.4);}
+
+/* ── ACTIONS GRID ── */
+.actions-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.actions-grid .btn{
+  font-size:7px;padding:10px 8px;
+  background:linear-gradient(135deg, rgba(26,14,42,.97), rgba(40,16,56,.97));
+  border-color:rgba(255,194,217,.5);
+  line-height:1.9;
+}
+.actions-grid .btn:hover{
+  background:linear-gradient(135deg, rgba(255,107,157,.85), rgba(255,56,120,.85));
+  border-color:var(--pink);
+  color:var(--dark);
+}
+
+/* ── DATE CONTROLS (HUG KISS ILY) ── */
+.date-controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+#hug-btn,#kiss-btn,#love-btn{
+  font-family:'Press Start 2P',monospace;font-size:8px;padding:11px 6px;
+  cursor:pointer;border-radius:10px;
+  transition:all .12s;line-height:1.6;text-align:center;
+}
+#hug-btn{
+  border:2px solid #ffb3cc;
+  background:linear-gradient(135deg, rgba(255,120,160,.15), rgba(255,80,130,.1));
+  color:#ffb3cc;
+  box-shadow:3px 3px 0 #4a0020;
+}
+#hug-btn:hover{background:linear-gradient(135deg,#ffb3cc,#ff80a8);color:var(--dark);box-shadow:4px 4px 0 #4a0020, 0 0 18px rgba(255,120,160,.4);}
+#kiss-btn{
+  border:2px solid #ff9ec0;
+  background:linear-gradient(135deg, rgba(255,80,140,.18), rgba(220,30,100,.1));
+  color:#ffd4e1;
+  box-shadow:3px 3px 0 #4a0020;
+}
+#kiss-btn:hover{background:linear-gradient(135deg,#ff80b0,#ff3878);color:var(--dark);box-shadow:4px 4px 0 #4a0020, 0 0 18px rgba(255,56,120,.45);}
+#love-btn{
+  border:2px solid var(--gold);
+  background:linear-gradient(135deg, rgba(255,215,0,.14), rgba(200,150,0,.1));
+  color:#ffeab0;
+  box-shadow:3px 3px 0 #4a3a00;
+}
+#love-btn:hover{background:linear-gradient(135deg,var(--gold),#ffb830);color:var(--dark);box-shadow:4px 4px 0 #4a3a00, 0 0 18px rgba(255,215,0,.4);}
+
+/* ── LOC PICKER ── */
+.loc-grid{display:flex;flex-direction:column;gap:8px;}
+.loc-btn{
+  font-family:'Press Start 2P',monospace;font-size:7px;
+  padding:13px 12px;
+  border:2px solid rgba(255,194,217,.4);
+  background:linear-gradient(135deg, rgba(26,14,42,.97), rgba(36,16,52,.97));
+  color:var(--blush);cursor:pointer;
+  text-align:left;line-height:2;
+  box-shadow:3px 3px 0 rgba(74,0,32,.6);
+  border-radius:10px;
+  transition:all .1s;
+}
+.loc-btn:hover{
+  border-color:var(--gold);
+  background:linear-gradient(135deg, rgba(80,30,80,.9), rgba(60,20,70,.9));
+  transform:translate(-2px,-2px);
+  box-shadow:5px 5px 0 rgba(74,0,32,.8), 0 0 16px rgba(255,215,0,.15);
+  color:var(--gold);
+}
+
+/* ── LOVE BAR ── */
+.love-bar-wrap{display:flex;align-items:center;gap:8px;font-family:'VT323',monospace;font-size:18px;}
+.love-bar-outer{
+  flex:1;background:rgba(10,4,20,.8);
+  border:2px solid rgba(255,107,157,.4);height:16px;border-radius:8px;overflow:hidden;
+}
+.love-bar-inner{
+  height:100%;
+  background:linear-gradient(90deg, #ff6b9d, #ff3878, #ff6b9d);
+  background-size:200% 100%;
+  animation:barShimmer 2s linear infinite;
+  transition:width .6s cubic-bezier(.22,.68,0,1.2);
+  border-radius:8px;
+}
+@keyframes barShimmer{0%{background-position:200% 0}100%{background-position:0% 0}}
+.love-count{color:var(--gold);min-width:48px;text-shadow:0 0 10px rgba(255,215,0,.35);}
+
+/* ── DREAM BTN ── */
+.dream-entry{display:flex;justify-content:center;margin-top:2px;}
+#dream-btn{
+  width:100%;font-family:'Press Start 2P',monospace;font-size:8px;
+  padding:13px 14px;
+  border:2px solid rgba(255,215,0,.6);
+  background:linear-gradient(135deg, rgba(30,14,50,.97), rgba(60,20,80,.97));
+  color:#ffe7b2;
+  box-shadow:4px 4px 0 #3a2a00, 0 0 0 rgba(255,215,0,0);
+  cursor:pointer;border-radius:10px;
+  transition:all .12s;display:none;
+}
+#dream-btn:hover{
+  background:linear-gradient(135deg, #ffd95b, #ffb84d);
+  color:var(--dark);transform:translate(-1px,-1px);
+  box-shadow:5px 5px 0 #3a2a00, 0 0 22px rgba(255,215,0,.35);
+}
+.dream-note{font-family:'VT323',monospace;font-size:18px;color:var(--lavender);text-align:center;letter-spacing:.5px;}
+.scene-caption{
+  font-family:'VT323',monospace;font-size:20px;text-align:center;
+  color:var(--blush);min-height:24px;
+  text-shadow:0 0 12px rgba(255,107,157,.22);
+}
+
+/* ── PARTICLES ── */
+.heart-pop{position:fixed;pointer-events:none;font-size:24px;animation:heartFly 1.5s ease-out forwards;z-index:999;}
+@keyframes heartFly{
+  0%{opacity:1;transform:translateY(0) scale(1) rotate(-10deg)}
+  50%{opacity:1;transform:translateY(-70px) scale(1.4) rotate(10deg)}
+  100%{opacity:0;transform:translateY(-150px) scale(0.8) rotate(30deg)}
+}
+.stat-flash{position:fixed;pointer-events:none;font-family:'Press Start 2P',monospace;font-size:13px;color:var(--gold);text-shadow:0 0 10px rgba(255,215,0,.5), 2px 2px 0 var(--dark);animation:statFly 1.1s ease-out forwards;z-index:999;}
+@keyframes statFly{0%{opacity:1;transform:translateY(0) scale(1)}50%{opacity:1;transform:translateY(-30px) scale(1.2)}100%{opacity:0;transform:translateY(-70px) scale(.8)}}
+
+/* ── TOAST ── */
+.toast{
+  border-radius:999px;
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+  font-family:'VT323',monospace;font-size:18px;
+  background:linear-gradient(135deg, rgba(26,14,42,.97), rgba(18,8,28,.97));
+  border:2px solid rgba(255,107,157,.5);
+  color:var(--blush);padding:10px 22px;z-index:9999;
+  box-shadow:0 0 20px rgba(255,107,157,.2);
+  animation:toastIn .3s ease;display:none;
+}
+.toast.show{display:block;}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(12px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+/* ── HEART GLOW ── */
+@keyframes heartGlow{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
+
+/* ── START BTN SPECIAL ── */
+.start-btn{
+  font-size:10px!important;padding:16px 28px!important;
+  border-width:2px!important;
+  background:linear-gradient(135deg,rgba(255,107,157,.15),rgba(255,56,120,.1))!important;
+  letter-spacing:2px;
+  position:relative;overflow:hidden;
+}
+.start-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,182,210,.12),transparent);
+  transform:translateX(-100%);
+  animation:btnSheen 2.5s ease-in-out infinite;
+}
+@keyframes btnSheen{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+
+/* ── MEMORY TAGS ── */
+.mem-tag{
+  font-family:'VT323',monospace;font-size:14px;
+  color:var(--lavender);
+  background:rgba(200,160,232,.08);
+  border:1px solid rgba(200,160,232,.2);
+  padding:4px 10px;border-radius:999px;
+  letter-spacing:.5px;
+}
+
+/* ── ROLE BUTTONS ── */
+.role-btn{
+  flex:1;font-family:'Press Start 2P',monospace;font-size:8px;
+  padding:18px 10px;
+  border:2px solid rgba(255,194,217,.4);
+  background:linear-gradient(145deg,rgba(26,14,42,.97),rgba(40,16,52,.97));
+  color:var(--blush);cursor:pointer;border-radius:14px;
+  box-shadow:3px 3px 0 rgba(74,0,32,.5);
+  transition:all .12s;text-align:center;line-height:1.6;
+}
+.role-btn:hover{
+  border-color:var(--pink);
+  background:linear-gradient(145deg,rgba(255,107,157,.18),rgba(255,56,120,.12));
+  transform:translate(-2px,-2px) scale(1.02);
+  box-shadow:5px 5px 0 rgba(74,0,32,.7), 0 0 20px rgba(255,107,157,.25);
+  color:var(--cream);
+}
+.role-btn.fareeza{border-color:rgba(200,160,232,.4);}
+.role-btn.fareeza:hover{border-color:var(--lavender);background:linear-gradient(145deg,rgba(200,160,232,.18),rgba(160,100,220,.12));box-shadow:5px 5px 0 rgba(40,0,80,.7), 0 0 20px rgba(200,160,232,.25);}
+
+/* ── LOC BTNS upgraded ── */
+.loc-btn{
+  display:grid!important;
+  grid-template-columns:auto 1fr!important;
+  grid-template-rows:auto auto!important;
+  gap:2px 10px!important;
+  align-items:center!important;
+  padding:14px 14px!important;
+}
+.loc-icon{font-size:22px;grid-row:1/3;align-self:center;}
+.loc-name{font-size:8px;color:var(--blush);line-height:1.4;}
+.loc-sub{font-family:'VT323',monospace;font-size:15px;color:var(--lavender);font-weight:normal;}
+
+/* ── SEND BTN ── */
+#send-btn{font-size:18px!important;padding:10px 16px!important;}
+
+/* ── DATE CONTROLS BIG ── */
+#hug-btn,#kiss-btn,#love-btn{font-size:22px!important;padding:14px 6px!important;line-height:1.3!important;}
+
+</style>
+<script>
+// ── IMMEDIATE STUBS ─────────────────────────────────────────────
+// Define showScreen right away (no Firebase needed).
+// All other functions are set to safe no-ops that show a loading message;
+// the ES module overwrites them with real implementations once Firebase loads.
+window.showScreen = (id) => {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) el.classList.add('active');
+};
+window.showToast = (msg) => {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+};
+const _loading = (name) => () => window.showToast('loading... please wait a moment 💕');
+window.setRole      = _loading('setRole');
+window.createRoom   = _loading('createRoom');
+window.joinRoom     = _loading('joinRoom');
+window.startDate    = _loading('startDate');
+window.copyCode     = _loading('copyCode');
+window.pickLocation = _loading('pickLocation');
+window.enterDream   = _loading('enterDream');
+window.sendMessage  = _loading('sendMessage');
+window.sendHug      = _loading('sendHug');
+window.sendKiss     = _loading('sendKiss');
+window.sendLoveYou  = _loading('sendLoveYou');
+window.leaveRoom    = _loading('leaveRoom');
+window.onTyping     = () => {};
+</script>
+</head>
+<body>
+
+<!-- ══ GLOBAL BG CANVAS (floating hearts) ══ -->
+<canvas id="bg-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;"></canvas>
+
+<!-- ══ TITLE SCREEN ══ -->
+<div class="screen active" id="s-title">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:18px;padding-top:28px;">
+
+    <!-- Animated heart cluster -->
+    <div style="position:relative;width:90px;height:90px;display:flex;align-items:center;justify-content:center;">
+      <div class="title-emoji" style="font-size:52px;z-index:2;position:relative;">💕</div>
+      <div style="position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(255,107,157,.22),transparent 70%);animation:heartGlow 2s ease-in-out infinite;"></div>
+    </div>
+
+    <div style="text-align:center;">
+      <h1 style="font-size:clamp(12px,3.5vw,18px);letter-spacing:2px;margin-bottom:8px;">PRANJAL</h1>
+      <div style="font-family:'VT323',monospace;font-size:32px;color:var(--pink);animation:float 1.8s ease-in-out infinite;">♡</div>
+      <h1 style="font-size:clamp(12px,3.5vw,18px);letter-spacing:2px;margin-top:4px;">FAREEZA</h1>
+    </div>
+
+    <div class="divider" style="width:80%;"></div>
+
+    <div style="text-align:center;display:flex;flex-direction:column;gap:6px;">
+      <div class="tagline" style="font-size:20px;color:var(--blush);">~ a love story in pixels ~</div>
+      <div class="tagline" style="font-size:13px;color:var(--lavender);letter-spacing:1.5px;">golgappe · F1 · trains · forever</div>
+    </div>
+
+    <!-- Cute little memory tags -->
+    <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:360px;">
+      <span class="mem-tag">🫙 stall nights</span>
+      <span class="mem-tag">💜 bts hours</span>
+      <span class="mem-tag">🏎️ ferrari</span>
+      <span class="mem-tag">🚂 trains</span>
+      <span class="mem-tag">🌌 rooftop stars</span>
+      <span class="mem-tag">🌸 iit walks</span>
+    </div>
+
+    <button class="btn pulse start-btn" onclick="showScreen('s-join')">
+      ♡ &nbsp;BEGIN OUR DATE&nbsp; ♡
+    </button>
+
+    <div style="font-family:'VT323',monospace;font-size:14px;color:rgba(200,160,232,.5);text-align:center;letter-spacing:.5px;">
+      made with love, for her ✨
+    </div>
+  </div>
+</div>
+
+<!-- ══ JOIN SCREEN ══ -->
+<div class="screen" id="s-join">
+  <div style="text-align:center;padding:8px 0 4px;">
+    <div style="font-size:28px;margin-bottom:6px;">💌</div>
+    <div class="tagline" style="font-size:18px;color:var(--blush);">who's opening this?</div>
+  </div>
+  <div class="panel">
+    <div style="display:flex;gap:10px;">
+      <button class="role-btn" onclick="setRole('PRANJAL')">
+        <span style="font-size:28px;display:block;margin-bottom:6px;">👦</span>
+        <span style="font-size:8px;">PRANJAL</span>
+      </button>
+      <button class="role-btn fareeza" onclick="setRole('FAREEZA')">
+        <span style="font-size:28px;display:block;margin-bottom:6px;">👧</span>
+        <span style="font-size:8px;">FAREEZA</span>
+      </button>
+    </div>
+  </div>
+  <div class="panel" id="room-panel" style="display:none;">
+    <div class="panel-title" id="room-panel-title">💕 CREATE OR JOIN?</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <button class="btn gold" onclick="createRoom()">✨ &nbsp;CREATE A ROOM</button>
+      <div style="text-align:center;font-family:'VT323',monospace;font-size:18px;color:rgba(200,160,232,.5);">— or join with a code —</div>
+      <div class="field-label">💌 ROOM CODE</div>
+      <input type="text" id="join-code-input" placeholder="enter code..." maxlength="8" style="text-transform:uppercase;text-align:center;font-size:26px;letter-spacing:4px;">
+      <button class="btn" onclick="joinRoom()">🚪 &nbsp;JOIN ROOM</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LOBBY SCREEN ══ -->
+<div class="screen" id="s-lobby">
+  <div style="text-align:center;padding:8px 0 2px;">
+    <div style="font-size:26px;margin-bottom:4px;animation:float 2s ease-in-out infinite;">🌸</div>
+    <div class="tagline" style="font-size:16px;color:var(--lavender);">waiting for the other half...</div>
+  </div>
+  <div class="panel" style="text-align:center;">
+    <div class="panel-title" style="text-align:center;">💌 share this code!</div>
+    <div class="room-code-display" id="lobby-code">----</div>
+    <div style="font-family:'VT323',monospace;font-size:16px;color:var(--lavender);">send it to your person 💕</div>
+    <div style="height:10px;"></div>
+    <button class="btn sm gold" onclick="copyCode()" style="width:100%;">📋 &nbsp;copy code</button>
+  </div>
+  <div class="panel">
+    <div class="panel-title">👥 who's here</div>
+    <div class="player-list" id="player-list"></div>
+  </div>
+  <button class="btn gold" id="start-date-btn" style="display:none;font-size:10px;padding:16px;" onclick="startDate()">
+    💕 &nbsp;start our date! &nbsp;💕
+  </button>
+  <button class="btn sm" style="border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.3);font-size:6px;" onclick="leaveRoom()">↩ leave room</button>
+</div>
+
+<!-- ══ LOCATION PICK ══ -->
+<div class="screen" id="s-loc">
+  <div style="text-align:center;padding:6px 0;">
+    <div style="font-size:24px;margin-bottom:6px;">🗺️</div>
+    <div class="tagline" style="font-size:18px;color:var(--blush);">where to, lovebirds?</div>
+    <div style="font-family:'VT323',monospace;font-size:14px;color:var(--lavender);margin-top:3px;">pick your date spot ✨</div>
+  </div>
+  <div class="loc-grid">
+    <button class="loc-btn" onclick="pickLocation('golgappe')">
+      <span class="loc-icon">🫙</span>
+      <span class="loc-name">Golgappe Stall</span>
+      <span class="loc-sub">the OG date spot 💕</span>
+    </button>
+    <button class="loc-btn" onclick="pickLocation('momos')">
+      <span class="loc-icon">🥟</span>
+      <span class="loc-name">Momos Date</span>
+      <span class="loc-sub">steam, spice, soft smiles</span>
+    </button>
+    <button class="loc-btn" onclick="pickLocation('bts')">
+      <span class="loc-icon">💜</span>
+      <span class="loc-name">BTS Night</span>
+      <span class="loc-sub">purple lights & tiny concerts</span>
+    </button>
+    <button class="loc-btn" onclick="pickLocation('f1')">
+      <span class="loc-icon">🏎️</span>
+      <span class="loc-name">Ferrari Watch Party</span>
+      <span class="loc-sub">scuderia forever 🔴</span>
+    </button>
+    <button class="loc-btn" onclick="pickLocation('train')">
+      <span class="loc-icon">🚂</span>
+      <span class="loc-name">Train Station</span>
+      <span class="loc-sub">spotting trains together</span>
+    </button>
+    <button class="loc-btn" onclick="pickLocation('stars')">
+      <span class="loc-icon">🌌</span>
+      <span class="loc-name">Rooftop Stargazing</span>
+      <span class="loc-sub">just you two, just the sky</span>
+    </button>
+    <button class="loc-btn" onclick="pickLocation('iit')">
+      <span class="loc-icon">🎓</span>
+      <span class="loc-name">IIT Campus Walk</span>
+      <span class="loc-sub">future goals & flower giving 🌸</span>
+    </button>
+  </div>
+</div>
+
+<!-- ══ GAME SCREEN ══ -->
+<div class="screen" id="s-game">
+
+  <div class="loc-banner" id="loc-name-banner">📍 Somewhere</div>
+  <canvas id="scene-canvas" width="448" height="180"></canvas>
+  <div class="scene-caption" id="scene-caption"></div>
+
+  <!-- Love meter -->
+  <div class="love-bar-wrap">
+    <span style="font-size:18px;animation:float 2s ease-in-out infinite;">💗</span>
+    <div class="love-bar-outer">
+      <div class="love-bar-inner" id="love-bar" style="width:20%;"></div>
+    </div>
+    <div class="love-count" id="love-count">♥ 2</div>
+  </div>
+
+  <!-- Chat -->
+  <div id="chat-area"></div>
+  <div class="typing-indicator" id="typing-indicator">
+    <span style="animation:float .8s ease-in-out infinite;display:inline-block;">✏️</span>
+    <span id="typing-name">someone</span> is typing...
+  </div>
+
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="say something sweet... 💌" maxlength="200"
+      oninput="onTyping()" onkeydown="if(event.key==='Enter')sendMessage()">
+    <button id="send-btn" onclick="sendMessage()">💌</button>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions-grid" id="actions-grid"></div>
+
+  <!-- HUG / KISS / ILY -->
+  <div class="date-controls">
+    <button id="hug-btn" onclick="sendHug()">🤗<br><span style="font-size:6px;">HUG</span></button>
+    <button id="kiss-btn" onclick="sendKiss()">💋<br><span style="font-size:6px;">KISS</span></button>
+    <button id="love-btn" onclick="sendLoveYou()">💌<br><span style="font-size:6px;">I LOVE YOU</span></button>
+  </div>
+
+  <!-- Dream -->
+  <div class="dream-entry">
+    <button class="btn gold" id="dream-btn" onclick="enterDream()">
+      ✨ &nbsp;enter the dream sequence &nbsp;✨
+    </button>
+  </div>
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <button class="btn sm" style="flex:1;min-width:120px;font-size:7px;" onclick="showScreen('s-loc')">🗺 change location</button>
+    <button class="btn sm" style="flex:1;min-width:120px;border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.3);font-size:7px;" onclick="leaveRoom()">↩ leave</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ══ BACKGROUND HEART CANVAS ══ -->
+<script>
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Particle pool
+  const GLYPHS = ['💕','💗','💖','💞','💓','🌸','✨','💫','🌟','♡','♥'];
+  const particles = [];
+  for (let i = 0; i < 28; i++) {
+    particles.push({
+      x: Math.random() * 1200,
+      y: Math.random() * 900 + 900, // start off-screen below
+      vx: (Math.random() - .5) * .4,
+      vy: -(0.28 + Math.random() * 0.44),
+      size: 10 + Math.random() * 18,
+      alpha: 0.04 + Math.random() * 0.1,
+      glyph: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: .006 + Math.random() * .008,
+      phase: Math.random() * Math.PI * 2,
+    });
+  }
+
+  function tick() {
+    canvas.width = W; // clear
+    for (const p of particles) {
+      p.wobble += p.wobbleSpeed;
+      p.x += p.vx + Math.sin(p.wobble) * .35;
+      p.y += p.vy;
+      // reset when off top
+      if (p.y < -60) {
+        p.y = H + 40 + Math.random() * 200;
+        p.x = Math.random() * W;
+        p.alpha = 0.04 + Math.random() * 0.1;
+        p.glyph = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+      }
+      ctx.globalAlpha = p.alpha * (0.7 + 0.3 * Math.sin(p.wobble + p.phase));
+      ctx.font = `${p.size}px serif`;
+      ctx.fillText(p.glyph, p.x, p.y);
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>
+
+
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, set, get, push, onValue, onChildAdded, update, serverTimestamp, off }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+// ══════════════════════════════════════════════════════════════
+//  🔧 PASTE YOUR FIREBASE CONFIG HERE
+// ══════════════════════════════════════════════════════════════
+const firebaseConfig = {
+  apiKey: "AIzaSyBJ5NfCKdANAyvTJq4O77r9spJmbOb2Z6I",
+  authDomain: "e-simulator-a96d8.firebaseapp.com",
+  databaseURL: "https://e-simulator-a96d8-default-rtdb.firebaseio.com",
+  projectId: "e-simulator-a96d8",
+  storageBucket: "e-simulator-a96d8.firebasestorage.app",
+  messagingSenderId: "391209468311",
+  appId: "1:391209468311:web:24b3993e634af7300744d2",
+  measurementId: "G-9L49S0X2YB"
+};
+// ══════════════════════════════════════════════════════════════
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// ── STATE ──────────────────────────────────────────────────────
+let myRole = null;      // 'PRANJAL' | 'FAREEZA'
+let roomCode = null;
+let roomRef = null;
+let hearts = 2;
+let maxHearts = 14;
+let currentLoc = null;
+let typingTimeout = null;
+let lastMsgKey = null;
+let roomUnsubs = [];
+let dreamUnlockShown = false;
+let dreamStartAt = 0;
+let dreamLoopId = null;
+const STORAGE_ROLE = 'dateSimRole';
+const STORAGE_ROOM = 'dateSimRoom';
+
+function displayName(role) {
+  return role === 'PRANJAL' ? 'Pranjal' : role === 'FAREEZA' ? 'Fareeza' : String(role || '').toLowerCase();
+}
+
+function saveSession() {
+  try {
+    if (myRole) localStorage.setItem(STORAGE_ROLE, myRole);
+    if (roomCode) localStorage.setItem(STORAGE_ROOM, roomCode);
+  } catch (_) {}
+}
+
+function loadSession() {
+  try {
+    const savedRole = localStorage.getItem(STORAGE_ROLE);
+    const savedRoom = localStorage.getItem(STORAGE_ROOM);
+    if (savedRole) {
+      myRole = savedRole;
+      document.getElementById('room-panel').style.display = 'block';
+      document.getElementById('room-panel-title').textContent = `HEY ${savedRole}! CREATE OR JOIN?`;
+      // Skip past title/who-are-you screen automatically
+      showScreen('s-join');
+    }
+    if (savedRoom) {
+      const input = document.getElementById('join-code-input');
+      if (input) input.value = savedRoom;
+      // Auto-rejoin the saved room
+      if (savedRole) {
+        (async () => {
+          try {
+            const snap = await get(ref(db, `rooms/${savedRoom}`));
+            if (snap.exists()) {
+              roomCode = savedRoom;
+              roomRef = ref(db, `rooms/${roomCode}`);
+              await update(ref(db, `rooms/${roomCode}/players`), { [myRole]: true });
+              enterLobby();
+              // If game was already started, jump straight back in
+              const started = snap.val()?.started;
+              if (started === true) {
+                showScreen('s-game');
+                listenGameState();
+              }
+            } else {
+              // Room no longer exists; clear saved code
+              try { localStorage.removeItem(STORAGE_ROOM); } catch (_) {}
+              if (input) input.value = '';
+            }
+          } catch (_) {}
+        })();
+      }
+    }
+  } catch (_) {}
+}
+
+function clearRoomListeners() {
+  roomUnsubs.forEach(fn => {
+    try { fn(); } catch (_) {}
+  });
+  roomUnsubs = [];
+}
+
+function trackListener(unsub) {
+  if (typeof unsub === 'function') roomUnsubs.push(unsub);
+  return unsub;
+}
+
+function clearTyping() {
+  if (!roomCode || !myRole) return;
+  update(ref(db, `rooms/${roomCode}/typing`), { [myRole]: false }).catch(() => {});
+}
+
+function systemMessage(text) {
+  push(ref(db, `rooms/${roomCode}/messages`), {
+    sender: 'SYSTEM',
+    text,
+    type: 'system',
+    ts: serverTimestamp()
+  }).catch(() => {});
+}
+
+
+// ── SCREEN MANAGER ─────────────────────────────────────────────
+window.showScreen = (id) => {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) el.classList.add('active');
+};
+
+// ── ROLE SELECT ────────────────────────────────────────────────
+window.setRole = (role) => {
+  myRole = role;
+  document.getElementById('room-panel').style.display = 'block';
+  document.getElementById('room-panel-title').textContent =
+    `HEY ${role}! CREATE OR JOIN?`;
+  saveSession();
+};
+
+// ── ROOM CODE GEN ──────────────────────────────────────────────
+function genCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  return code;
+}
+
+function normalizeCode(code) {
+  return String(code || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
+}
+
+// ── CREATE ROOM ────────────────────────────────────────────────
+window.createRoom = async () => {
+  if (!myRole) { showToast('pick who you are first!'); return; }
+  try {
+    showToast('creating room...', 1500);
+    let attempts = 0;
+    while (attempts < 8) {
+      const candidate = genCode();
+      const existing = await get(ref(db, `rooms/${candidate}`));
+      if (!existing.exists()) {
+        roomCode = candidate;
+        break;
+      }
+      attempts++;
+    }
+    if (!roomCode) { showToast('could not mint a room code'); return; }
+    roomRef = ref(db, `rooms/${roomCode}`);
+    await set(roomRef, {
+      createdAt: serverTimestamp(),
+      players: { [myRole]: true },
+      hearts: 2,
+      location: null,
+      started: false
+    });
+    systemMessage(`${displayName(myRole)} created the room ✨`);
+    saveSession();
+    enterLobby();
+  } catch(e) {
+    showToast('error: ' + e.message, 4000);
+    console.error(e);
+  }
+};
+
+// ── JOIN ROOM ──────────────────────────────────────────────────
+window.joinRoom = async () => {
+  if (!myRole) { showToast('pick who you are first!'); return; }
+  const code = normalizeCode(document.getElementById('join-code-input').value);
+  document.getElementById('join-code-input').value = code;
+  if (code.length !== 6) { showToast('enter a valid 6-letter code!'); return; }
+  try {
+    showToast('joining room...', 1500);
+    const snap = await get(ref(db, `rooms/${code}`));
+    if (!snap.exists()) { showToast('room not found 😭'); return; }
+    roomCode = code;
+    roomRef = ref(db, `rooms/${roomCode}`);
+    await update(ref(db, `rooms/${roomCode}/players`), { [myRole]: true });
+    systemMessage(`${displayName(myRole)} joined the room 💞`);
+    saveSession();
+    enterLobby();
+  } catch(e) {
+    showToast('error: ' + e.message, 4000);
+    console.error(e);
+  }
+};
+
+// ── LOBBY ──────────────────────────────────────────────────────
+function enterLobby() {
+  clearRoomListeners();
+  document.getElementById('lobby-code').textContent = roomCode;
+  showScreen('s-lobby');
+
+  trackListener(onValue(ref(db, `rooms/${roomCode}/players`), snap => {
+    const players = snap.val() || {};
+    const list = document.getElementById('player-list');
+    list.innerHTML = '';
+    ['PRANJAL','FAREEZA'].forEach(name => {
+      const row = document.createElement('div');
+      row.className = 'player-row';
+      const dot = document.createElement('span');
+      dot.className = 'status-dot ' + (players[name] ? 'dot-online' : 'dot-waiting');
+      const label = document.createElement('span');
+      label.style.fontFamily = 'VT323,monospace';
+      label.style.fontSize = '20px';
+      label.textContent = players[name]
+        ? `👋 ${displayName(name)} — online`
+        : `⌛ ${displayName(name)} — waiting...`;
+      row.appendChild(dot); row.appendChild(label);
+      list.appendChild(row);
+    });
+    const both = players.PRANJAL && players.FAREEZA;
+    document.getElementById('start-date-btn').style.display = both ? 'block' : 'none';
+  }));
+
+  // Listen for game start
+  trackListener(onValue(ref(db, `rooms/${roomCode}/started`), snap => {
+    if (snap.val() === true) {
+      showScreen('s-game');
+      listenGameState();
+    }
+  }));
+}
+
+window.startDate = async () => {
+  await update(roomRef, { started: true });
+  systemMessage('the date began 💘');
+};
+
+window.copyCode = async () => {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(roomCode);
+      showToast('code copied! 📋');
+      return;
+    }
+  } catch (_) {}
+  const input = document.createElement('input');
+  input.value = roomCode || '';
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  input.remove();
+  showToast('code copied! 📋');
+};
+
+// ── LOCATION PICK ──────────────────────────────────────────────
+const LOCATIONS = {
+  golgappe: { name:'🫙 GOLGAPPE STALL', actions:[
+    {label:'🫙 Order the spiciest ones', key:'spicy'},
+    {label:'💕 Feed her one', key:'feed'},
+    {label:'📸 Take a pic together', key:'pic'},
+    {label:'🌶️ Eating challenge!', key:'challenge'},
+  ]},
+  momos: { name:'🥟 MOMOS DATE', actions:[
+    {label:'🥟 Order steaming momos', key:'momoSteam'},
+    {label:'🌶️ Extra spicy bite', key:'momoSpice'},
+    {label:'🫶 Feed each other', key:'momoFeed'},
+    {label:'☕ Share chai after', key:'momoChai'},
+  ]},
+  bts: { name:'💜 BTS DREAM DATE', actions:[
+    {label:'🎧 Share earbuds', key:'btsEarbuds'},
+    {label:'💜 Dance in purple light', key:'btsDance'},
+    {label:'📸 Concert selfie', key:'btsSelfie'},
+    {label:'🎤 Sing together', key:'btsSing'},
+  ]},
+  f1: { name:'🏎️ FERRARI DATE NIGHT', actions:[
+    {label:'🔴 Forza Ferrari together', key:'forza'},
+    {label:'💋 Kiss under the lights', key:'kiss'},
+    {label:'🤗 Final-lap hug', key:'hug'},
+    {label:'💌 Say I love you', key:'love'},
+    {label:'🏆 Victory lap cuddle', key:'win'},
+  ]},
+  train: { name:'🚂 TRAIN STATION', actions:[
+    {label:'🚂 Spot & name a train', key:'spot'},
+    {label:'🌅 Watch sunset together', key:'sunset'},
+    {label:'☕ Chai from platform stall', key:'chai'},
+    {label:'🎵 Hum a song', key:'hum'},
+  ]},
+  stars: { name:'🌌 ROOFTOP STARGAZING', actions:[
+    {label:'⭐ Name a star after her', key:'namestar'},
+    {label:'🌙 Just exist together', key:'exist'},
+    {label:'💫 Make a wish', key:'wish'},
+    {label:'🌠 Spot a shooting star', key:'shoot'},
+  ]},
+  iit: { name:'🎓 IIT CAMPUS WALK', actions:[
+    {label:'🌊 Walk by the lake', key:'lake'},
+    {label:'📚 Future study sessions', key:'future'},
+    {label:'🌸 Pick a flower for her', key:'flower'},
+    {label:'🤝 Make a promise', key:'promise'},
+  ]},
+  dream: { name:'✨ DREAM SEQUENCE', actions:[
+    {label:'🚲 Ride into the dream', key:'dreamBike'},
+    {label:'🍲 Cozy kitchen scene', key:'dreamCook'},
+    {label:'🚉 Train memory scene', key:'dreamTrain'},
+    {label:'🌼 Dandelion ending', key:'dreamBloom'},
+  ]},
+};
+
+const ACTION_MSGS = {
+  spicy:     { text: "ordered the EXTRA SPICY ones 🌶️ eyes watering guaranteed", hearts:1, effect:"spicy" },
+  feed:      { text: "fed her a golgappa 💕 *smiles*", hearts:2, effect:"feed" },
+  pic:       { text: "took a pic together 📸 best photo ever", hearts:1, effect:"pic" },
+  challenge: { text: "started a golgappa eating challenge 😭", hearts:1, effect:"challenge" },
+
+  momoSteam: { text: "ordered a mountain of steaming momos 🥟 the table turned into a tiny cloud", hearts:2, effect:"momoSteam" },
+  momoSpice: { text: "bit into the spicy momo and started laughing through the heat 🌶️", hearts:2, effect:"momoSpice" },
+  momoFeed:  { text: "fed each other momos with a ridiculous amount of softness 🫶", hearts:3, effect:"momoFeed" },
+  momoChai:  { text: "shared chai after the momos ☕ sweet talk and warm hands", hearts:2, effect:"momoChai" },
+
+  btsEarbuds:{ text: "shared one pair of earbuds and drifted into BTS land 🎧💜", hearts:2, effect:"earbuds" },
+  btsDance:  { text: "danced under purple lights like the whole world was a concert 💜", hearts:3, effect:"dance" },
+  btsSelfie: { text: "took a concert selfie that absolutely deserved a frame 📸💜", hearts:2, effect:"selfie" },
+  btsSing:   { text: "sang way off-key together and somehow made it adorable 🎤✨", hearts:2, effect:"sing" },
+
+  forza:     { text: "screamed FORZA FERRARI!!! 🔴 neighbors can hear", hearts:1, effect:"forza" },
+  hug:       { text: "pulled her into a final-lap hug 🤗 warm and soft and unfairly adorable", hearts:3, effect:"hug" },
+  kiss:      { text: "kissed her softly under the glowing paddock lights 💋 *instant blush*", hearts:4, effect:"kiss" },
+  love:      { text: "said I love you 💌 and the whole universe got a little quieter", hearts:5, effect:"love" },
+  dnf:       { text: "cried together when Ferrari DNF'd 😭 emotional support hugs", hearts:2, effect:"dnf" },
+  popcorn:   { text: "stole her popcorn 🍿 *pretends to be innocent*", hearts:1, effect:"forza" },
+  win:       { text: "LECLERC WINS!! celebrated like crazy 🏆🔴", hearts:3, effect:"win" },
+
+  spot:      { text: "spotted a train and named it immediately 🚂 nerd moment", hearts:1, effect:"spot" },
+  sunset:    { text: "watched the sunset from the platform 🌅 *quiet moment*", hearts:2, effect:"sunset" },
+  chai:      { text: "got cutting chai from the platform stall ☕ *sharing one cup*", hearts:2, effect:"chai" },
+  hum:       { text: "started humming a song together 🎵 no one asked but okay", hearts:2, effect:"hum" },
+
+  namestar:  { text: 'named a star "Fareeza" ⭐ not scientifically valid but emotionally real', hearts:3, effect:"namestar" },
+  exist:     { text: "just lay there looking at the sky 🌌 *shoulder touch*", hearts:2, effect:"exist" },
+  wish:      { text: "made a wish 💫 won't tell what it was. (it was you.)", hearts:3, effect:"wish" },
+  shoot:     { text: "spotted a shooting star together 🌠 both wished the same thing probably", hearts:2, effect:"shoot" },
+
+  lake:      { text: "walked by the campus lake together 🌊 future feels", hearts:2, effect:"lake" },
+  future:    { text: 'planned future study sessions here 📚 "you\'re my best distraction"', hearts:1, effect:"future" },
+  flower:    { text: "picked a small flower and gave it to her 🌸 saved from exam day", hearts:3, effect:"flower" },
+  promise:   { text: "made a promise — Germany, F1, together 🏎️💕", hearts:3, effect:"promise" },
+
+  dreamBike: { text: "rode into the dream on a glowing bicycle 🚲🌙", hearts:2, effect:"dream" },
+  dreamCook: { text: "stepped into the cozy dream kitchen 🍲 soft light, soft smiles", hearts:2, effect:"dream" },
+  dreamTrain:{ text: "watched the dream-train glide by at sunset 🚉✨", hearts:2, effect:"dream" },
+  dreamBloom:{ text: "let the dandelion ending bloom in golden quiet 🌼", hearts:3, effect:"dream" },
+};
+window.pickLocation = async (loc) => {
+  await update(roomRef, { location: loc });
+  goToLocation(loc);
+};
+
+window.enterDream = async () => {
+  if (!roomCode || !myRole) return;
+  dreamStartAt = performance.now();
+  await update(roomRef, { location: 'dream' });
+  if (currentLoc !== 'dream') {
+    systemMessage('✨ dream sequence unlocked');
+  }
+  goToLocation('dream');
+  startDreamLoop();
+};
+
+function goToLocation(loc) {
+  currentLoc = loc;
+  const locData = LOCATIONS[loc];
+  const banner = document.getElementById('loc-name-banner');
+  banner.textContent = locData.name;
+  banner.classList.remove('romance-pulse');
+  void banner.offsetWidth;
+  banner.classList.add('romance-pulse');
+  drawScene(loc);
+  renderActions(loc);
+  showScreen('s-game');
+  if (loc === 'dream') {
+    dreamStartAt = dreamStartAt || performance.now();
+    stopSceneLoop();
+    startDreamLoop();
+  } else {
+    stopDreamLoop();
+    startSceneLoop();
+  }
+}
+
+let sceneLoopId = null;
+let sceneMotion = null;
+function startSceneLoop() {
+  if (sceneLoopId) return;
+  const tick = (t) => {
+    if (!currentLoc || currentLoc === 'dream' || !document.getElementById('s-game').classList.contains('active')) {
+      sceneLoopId = null;
+      return;
+    }
+    drawScene(currentLoc, t);
+    sceneLoopId = requestAnimationFrame(tick);
+  };
+  sceneLoopId = requestAnimationFrame(tick);
+}
+
+function stopSceneLoop() {
+  if (sceneLoopId) cancelAnimationFrame(sceneLoopId);
+  sceneLoopId = null;
+}
+
+function startDreamLoop() {
+  if (dreamLoopId) return;
+  const tick = (t) => {
+    if (currentLoc !== 'dream' || !document.getElementById('s-game').classList.contains('active')) {
+      stopDreamLoop();
+      return;
+    }
+    drawScene('dream', t);
+    dreamLoopId = requestAnimationFrame(tick);
+  };
+  dreamLoopId = requestAnimationFrame(tick);
+}
+
+function stopDreamLoop() {
+  if (dreamLoopId) cancelAnimationFrame(dreamLoopId);
+  dreamLoopId = null;
+}
+
+// ── GAME STATE LISTENER ────────────────────────────────────────
+
+function listenGameState() {
+  clearRoomListeners();
+
+  // Hearts
+  trackListener(onValue(ref(db, `rooms/${roomCode}/hearts`), snap => {
+    hearts = snap.val() || 2;
+    updateHeartsBar();
+  }));
+
+  // Location changes
+  trackListener(onValue(ref(db, `rooms/${roomCode}/location`), snap => {
+    const loc = snap.val();
+    if (loc && loc !== currentLoc) goToLocation(loc);
+  }));
+
+  // Chat messages
+  lastMsgKey = null;
+  const messagesRef = ref(db, `rooms/${roomCode}/messages`);
+  trackListener(onChildAdded(messagesRef, snap => {
+    const msg = snap.val();
+    if (!msg) return;
+    appendMessage(msg);
+  }));
+
+  // Typing
+  trackListener(onValue(ref(db, `rooms/${roomCode}/typing`), snap => {
+    const typing = snap.val() || {};
+    const others = Object.entries(typing).filter(([k,v]) => k !== myRole && v);
+    const ind = document.getElementById('typing-indicator');
+    const nameEl = document.getElementById('typing-name');
+    if (others.length) {
+      nameEl.textContent = displayName(others[0][0]);
+      ind.classList.add('visible');
+    } else {
+      ind.classList.remove('visible');
+    }
+  }));
+}
+
+// ── CHAT ───────────────────────────────────────────────────────
+window.onTyping = () => {
+  if (!roomCode || !myRole) return;
+  update(ref(db, `rooms/${roomCode}/typing`), { [myRole]: true });
+  clearTimeout(typingTimeout);
+  typingTimeout = setTimeout(() => {
+    update(ref(db, `rooms/${roomCode}/typing`), { [myRole]: false });
+  }, 1800);
+};
+
+window.sendMessage = async () => {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text || !roomCode || !myRole) return;
+  input.value = '';
+  update(ref(db, `rooms/${roomCode}/typing`), { [myRole]: false });
+  await push(ref(db, `rooms/${roomCode}/messages`), {
+    sender: myRole,
+    text,
+    type: 'chat',
+    ts: serverTimestamp()
+  });
+};
+
+function appendMessage(msg) {
+  const area = document.getElementById('chat-area');
+  const wrap = document.createElement('div');
+  wrap.className = 'msg';
+
+  if (msg.type === 'system' || msg.type === 'action') {
+    wrap.classList.add(msg.type === 'action' ? 'action-msg' : 'system');
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.textContent = msg.text;
+    wrap.appendChild(bubble);
+  } else {
+    wrap.classList.add(msg.sender === myRole ? 'me' : 'them');
+    const name = document.createElement('div');
+    name.className = 'msg-name';
+    name.textContent = displayName(msg.sender);
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.textContent = msg.text;
+    wrap.appendChild(name);
+    wrap.appendChild(bubble);
+  }
+
+  area.appendChild(wrap);
+  area.scrollTop = area.scrollHeight;
+}
+
+// ── DATE ACTIONS ───────────────────────────────────────────────
+function renderActions(loc) {
+  const grid = document.getElementById('actions-grid');
+  grid.innerHTML = '';
+  const actions = LOCATIONS[loc]?.actions || [];
+  actions.forEach(a => {
+    const btn = document.createElement('button');
+    btn.className = 'btn sm' + (loc === 'f1' ? ' red' : '');
+    btn.textContent = a.label;
+    btn.onclick = () => doAction(a.key);
+    grid.appendChild(btn);
+  });
+}
+
+async function doAction(key) {
+  const actionData = ACTION_MSGS[key];
+  if (!actionData || !roomCode || !myRole) return;
+  const text = `✨ ${displayName(myRole)}: ${actionData.text}`;
+  await push(ref(db, `rooms/${roomCode}/messages`), { sender: myRole, text, type:'action', ts: serverTimestamp() });
+  const newHearts = Math.min(hearts + actionData.hearts, maxHearts);
+  await update(roomRef, { hearts: newHearts });
+  triggerRomanceEffect(actionData.effect || 'spark', actionData.text);
+  spawnHearts(actionData.hearts);
+  const effectDurs = {
+    kiss:1400, love:1600, hug:1300, win:2000, dnf:1800,
+    dance:1500, selfie:2400, earbuds:1800, sing:2000,
+    namestar:1600, wish:1400, shoot:1200, exist:2000,
+    pic:2400, feed:1300, spicy:1200, challenge:1500,
+    momoFeed:1400, momoChai:1600, momoSpice:1200, momoSteam:1200,
+    sunset:2000, chai:1800, hum:2000, spot:1400,
+    flower:1600, promise:2000, lake:1800, future:1600,
+    forza:1200, dnf:1800,
+  };
+  playSceneMotion(actionData.effect || 'intro', effectDurs[actionData.effect] || 1200);
+  showStatFlash(`+${actionData.hearts} 💗`);
+}
+
+async function sendAffection(kind) {
+  if (!roomCode || !myRole) return;
+  const partner = myRole === 'PRANJAL' ? 'Fareeza' : 'Pranjal';
+  const data = {
+    hug:  { text:`🤗 ${displayName(myRole)} wrapped ${partner} in a full-on cuddle 💞`, hearts:3, effect:'hug', stat:'+3 🤗' },
+    kiss: { text:`💋 ${displayName(myRole)} kissed ${partner} softly under the F1 lights ✨`, hearts:4, effect:'kiss', stat:'+4 💋' },
+    love: { text:`💌 ${displayName(myRole)} said I love you to ${partner} and meant every molecule of it`, hearts:5, effect:'love', stat:'+5 💞' },
+  }[kind];
+  if (!data) return;
+  await push(ref(db, `rooms/${roomCode}/messages`), {
+    sender: myRole,
+    text: data.text,
+    type: 'action',
+    ts: serverTimestamp()
+  });
+  const newHearts = Math.min(hearts + data.hearts, maxHearts);
+  await update(roomRef, { hearts: newHearts });
+  triggerRomanceEffect(data.effect, data.text);
+  spawnHeartBurst();
+  playSceneMotion(data.effect || 'intro', data.effect === 'kiss' ? 1300 : data.effect === 'love' ? 1500 : 1150);
+  showStatFlash(data.stat);
+}
+
+window.sendHug = () => sendAffection('hug');
+window.sendKiss = () => sendAffection('kiss');
+window.sendLoveYou = () => sendAffection('love');
+
+// ── HEARTS ─────────────────────────────────────────────────────
+
+function updateHeartsBar() {
+  const pct = Math.min((hearts / maxHearts) * 100, 100);
+  document.getElementById('love-bar').style.width = pct + '%';
+  document.getElementById('love-count').textContent = `♥ ${hearts}`;
+  const dreamBtn = document.getElementById('dream-btn');
+  if (dreamBtn) {
+    const unlocked = hearts >= 10;
+    dreamBtn.style.display = unlocked ? 'inline-flex' : 'none';
+    if (unlocked && !dreamUnlockShown) {
+      dreamUnlockShown = true;
+      showToast('✨ dream sequence unlocked');
+    }
+  }
+}
+
+function spawnHearts(n) {
+  for (let i = 0; i < Math.min(n * 2, 8); i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'heart-pop';
+      el.textContent = ['💗','💕','💖','💝'][Math.floor(Math.random()*4)];
+      el.style.left = (25 + Math.random() * 50) + '%';
+      el.style.top = (35 + Math.random() * 25) + '%';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1400);
+    }, i * 130);
+  }
+}
+
+function spawnHeartBurst() {
+  for (let i = 0; i < 12; i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'heart-pop';
+      el.textContent = ['💗','💕','💖','💝','🤗'][Math.floor(Math.random()*5)];
+      el.style.left = (15 + Math.random() * 70) + '%';
+      el.style.top = (25 + Math.random() * 40) + '%';
+      el.style.fontSize = (16 + Math.random()*18) + 'px';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1400);
+    }, i * 90);
+  }
+}
+
+function showStatFlash(text) {
+  const el = document.createElement('div');
+  el.className = 'stat-flash';
+  el.textContent = text;
+  el.style.cssText = 'left:50%;top:38%;transform:translateX(-50%)';
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1100);
+}
+
+function getFxLayer() {
+  let layer = document.querySelector('.romance-fx');
+  if (!layer) {
+    layer = document.createElement('div');
+    layer.className = 'romance-fx';
+    document.body.appendChild(layer);
+  }
+  return layer;
+}
+
+function triggerRomanceEffect(kind, text) {
+  const layer = getFxLayer();
+  layer.innerHTML = '<div class="scene-dust"></div>';
+
+  const presets = {
+    kiss:  { emojis: ['💋','💕','💗','✨','🌸'], center: '💋 mwah!', burst: 16, note: 'Sparks. Instantaneous.', centerClass: 'fx-pop' },
+    love:  { emojis: ['💞','💘','💖','✨','🌷'], center: '💌 I love you', burst: 20, note: 'Soft hearts, loud feelings.', centerClass: 'love-cloud' },
+    hug:   { emojis: ['🤗','💗','💞','✨','🫶'], center: '🤗 squeeze!', burst: 12, note: 'A very solid cuddle event.', centerClass: 'fx-pop' },
+    steam: { emojis: ['🥟','🌫️','✨','💗','🌸'], center: '🥟 steam burst!', burst: 14, note: 'The table has entered cloud mode.', centerClass: 'fx-pop' },
+    music: { emojis: ['💜','🎧','✨','🎵','🌙'], center: '💜 concert glow!', burst: 16, note: 'Tiny concert. Massive feelings.', centerClass: 'fx-pop' },
+    dream: { emojis: ['🌙','🌼','✨','💞','🕊️'], center: '🌙 dream shimmer!', burst: 18, note: 'The dream is awake.', centerClass: 'love-cloud' },
+    spark: { emojis: ['✨','💖','💫','💗','🎀'], center: '✨ sparkle!', burst: 10, note: 'A little extra gravity. That is all.', centerClass: 'fx-pop' },
+  };
+
+  const preset = presets[kind] || presets.spark;
+  const center = document.createElement('div');
+  center.className = preset.centerClass;
+  center.textContent = preset.center;
+  layer.appendChild(center);
+
+  if (kind === 'kiss' || kind === 'love') {
+    const ring = document.createElement('div');
+    ring.className = 'kiss-ring';
+    if (kind === 'love') ring.style.borderColor = 'rgba(255,215,160,.72)';
+    layer.appendChild(ring);
+  }
+
+  const bouquet = kind === 'love' || kind === 'dream' ? 'petal' : kind === 'music' ? 'duo-spark' : 'heart-pop';
+  for (let i = 0; i < preset.burst; i++) {
+    const el = document.createElement('div');
+    el.className = bouquet;
+    el.textContent = preset.emojis[i % preset.emojis.length];
+    el.style.left = (34 + Math.random() * 32) + '%';
+    el.style.top = (34 + Math.random() * 20) + '%';
+    el.style.fontSize = (kind === 'love' || kind === 'dream') ? (16 + Math.random() * 12) + 'px' : (17 + Math.random() * 14) + 'px';
+    el.style.animationDelay = (i * 26) + 'ms';
+    layer.appendChild(el);
+    setTimeout(() => el.remove(), (kind === 'love' || kind === 'dream') ? 1750 : 1450);
+  }
+
+  if (kind === 'hug' || kind === 'kiss') {
+    const duo = document.createElement('div');
+    duo.className = 'tiny-bubble';
+    duo.textContent = kind === 'hug' ? '🫶' : '😘';
+    duo.style.cssText = "position:absolute;left:50%;top:52%;transform:translateX(-50%);font-size:42px;";
+    layer.appendChild(duo);
+    setTimeout(() => duo.remove(), 1200);
+  }
+
+  if (kind === 'music') {
+    for (let i = 0; i < 4; i++) {
+      const note = document.createElement('div');
+      note.className = 'tiny-bubble';
+      note.textContent = ['🎵','🎶','💜','🎧'][i];
+      note.style.left = (42 + i * 10) + '%';
+      note.style.top = (48 + (i % 2) * 8) + '%';
+      note.style.fontSize = '22px';
+      layer.appendChild(note);
+      setTimeout(() => note.remove(), 1500);
+    }
+  }
+
+  const note = document.createElement('div');
+  note.className = 'love-note';
+  note.textContent = preset.note + (text && text.length > 52 ? ' ✨' : '');
+  note.style.cssText = "position:absolute;left:50%;top:61%;transform:translateX(-50%);font-family:'VT323',monospace;font-size:24px;color:#ffd9e6;text-shadow:0 0 12px rgba(255,107,157,.4);animation:loveCloud 1.7s ease-out forwards;";
+  layer.appendChild(note);
+  setTimeout(() => note.remove(), 1800);
+
+  setTimeout(() => { layer.innerHTML = ''; }, 1800);
+}
+
+// ── TOAST ──────────────────────────────────────────────────────
+
+window.showToast = (msg, dur=2200) => {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), dur);
+};
+
+// ── SCENE DRAWING ──────────────────────────────────────────────
+function px(ctx, x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(x, y, w, h); }
+
+function drawScene(loc, now = performance.now()) {
+  const canvas = document.getElementById('scene-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+  const scenes = {
+    golgappe: drawGolgappe,
+    momos: drawMomos,
+    bts: drawBTS,
+    f1: drawF1,
+    train: drawTrain,
+    stars: drawStarsScene,
+    iit: drawIIT,
+    dream: drawDream
+  };
+  (scenes[loc] || drawGolgappe)(ctx, W, H, now);
+}
+
+
+// ── OVERRIDES: richer choreography + safer dream ─────────────
+function playSceneMotion(kind = 'spark', duration = 1200, meta = {}) {
+  sceneMotion = {
+    kind,
+    start: performance.now(),
+    duration: Math.max(420, duration || 0),
+    meta
+  };
+}
+
+function motionProgress(now = performance.now()) {
+  if (!sceneMotion) return 1;
+  return clamp01((now - sceneMotion.start) / Math.max(sceneMotion.duration, 1));
+}
+
+function motionPhase(now = performance.now(), stops = [0.42, 0.72]) {
+  const p = motionProgress(now);
+  if (p < stops[0]) return 0;
+  if (p < stops[1]) return 1;
+  return 2;
+}
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function softPulse(now, rate = 260) {
+  return 0.5 + 0.5 * Math.sin(now / rate);
+}
+
+function drawParticleCloud(ctx, now, count, x0, y0, spread, glyphs, color, size = 14) {
+  for (let i = 0; i < count; i++) {
+    const t = now / 320 + i * 0.8;
+    const x = x0 + Math.cos(t) * spread * 0.45 + Math.sin(t * 1.7) * spread * 0.12;
+    const y = y0 + Math.sin(t * 0.9) * spread * 0.18 - (i * 2);
+    ctx.fillStyle = color;
+    ctx.font = `${size}px monospace`;
+    ctx.fillText(glyphs[i % glyphs.length], x, y);
+  }
+}
+
+
+function clamp01(v) {
+  return Math.max(0, Math.min(1, Number.isFinite(v) ? v : 0));
+}
+
+function easeInOutCubic(t) {
+  t = clamp01(t);
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+function sceneText(ctx, text, x, y, color = '#fff', size = 10) {
+  if (!ctx) return;
+  ctx.save();
+  ctx.fillStyle = color;
+  ctx.font = `bold ${size}px monospace`;
+  ctx.fillText(String(text), x, y);
+  ctx.restore();
+}
+
+function floatingNotes(ctx, now, x, y, count = 4, color = 'rgba(255,255,255,.8)') {
+  const glyphs = ['♪', '♫', '♬', '•'];
+  for (let i = 0; i < count; i++) {
+    const t = now / 180 + i * 0.7;
+    const dx = Math.cos(t) * 12 + Math.sin(t * 1.8) * 4;
+    const dy = Math.sin(t * 0.9) * 10 - i * 2;
+    ctx.fillStyle = color;
+    ctx.font = `${10 + (i % 2) * 2}px monospace`;
+    ctx.fillText(glyphs[i % glyphs.length], x + dx, y + dy);
+  }
+}
+
+function floatingHearts(ctx, now, count = 6, x = 224, y = 72, spread = 36, glyphs = ['💗', '💕', '💖']) {
+  for (let i = 0; i < count; i++) {
+    const t = now / 240 + i * 0.8;
+    const dx = Math.cos(t) * spread * 0.35 + Math.sin(t * 1.3) * 5;
+    const dy = Math.sin(t * 0.9) * spread * 0.22 - i * 2;
+    ctx.font = `${12 + (i % 3) * 2}px monospace`;
+    ctx.fillStyle = 'rgba(255,255,255,.95)';
+    ctx.fillText(glyphs[i % glyphs.length], x + dx, y + dy);
+  }
+}
+
+function steamPuffs(ctx, now, x, y, color = 'rgba(255,230,205,.72)') {
+  for (let i = 0; i < 5; i++) {
+    const t = now / 260 + i * 0.9;
+    const dx = Math.sin(t) * 10 + (i - 2) * 12;
+    const dy = -Math.abs(Math.cos(t)) * 18 - i * 8;
+    const r = 7 + (i % 3) * 2 + Math.sin(now / 120 + i) * 1.2;
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(x + dx, y + dy, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function petalFalling(ctx, now, count = 5, x = 224, y = 80, spreadX = 50, spreadY = 30, color = 'rgba(255,182,193,.5)') {
+  const petals = ['✿', '❀', '🌸', '•'];
+  for (let i = 0; i < count; i++) {
+    const t = now / 320 + i * 0.6;
+    const dx = Math.sin(t * 0.8) * spreadX * 0.5 + (i - count / 2) * 7;
+    const dy = Math.cos(t * 1.1) * spreadY * 0.25 + (i * 2) - 6;
+    ctx.fillStyle = color;
+    ctx.font = `${10 + (i % 3) * 2}px monospace`;
+    ctx.fillText(petals[i % petals.length], x + dx, y + dy);
+  }
+}
+
+function drawChibiDuo(ctx, now, mode = 'steam', opts = {}) {
+  const center = opts.center ?? 224;
+  const leftStart = opts.leftStart ?? 84;
+  const rightStart = opts.rightStart ?? 364;
+  const leftY = opts.leftY ?? 92;
+  const rightY = opts.rightY ?? 92;
+  const closeGap = opts.closeGap ?? 42;
+  const p = clamp01((now - (sceneMotion?.start || now)) / Math.max(sceneMotion?.duration || 1200, 1));
+  const approach = mode === 'kiss' ? 1 : mode === 'hug' ? 0.8 : mode === 'love' ? 0.65 : 0.45;
+  const leftX = leftStart + (center - leftStart - closeGap) * Math.min(1, p * 1.15) * approach;
+  const rightX = rightStart - (rightStart - center - closeGap) * Math.min(1, p * 1.15) * approach;
+
+  const leftPose = mode === 'kiss' ? 'kiss' : mode === 'hug' ? 'hug' : mode === 'love' ? 'love' : mode === 'dance' ? 'dance' : 'idle';
+  const rightPose = leftPose;
+
+  drawCharacter(ctx, 'pranjal', leftX, leftY + Math.sin(now / 180) * 1.5, { pose: leftPose, bob: Math.sin(now / 220) * 1.2 }, now);
+  drawCharacter(ctx, 'fareeza', rightX, rightY - Math.sin(now / 180) * 1.5, { pose: rightPose, bob: Math.sin(now / 220) * 1.2 }, now);
+
+  if (mode === 'kiss') {
+    drawGlowHeart(ctx, center, 82, 14, 'rgba(255,182,193,.28)');
+  } else if (mode === 'love') {
+    drawGlowHeart(ctx, center, 82, 18, 'rgba(255,215,160,.22)');
+  } else if (mode === 'hug') {
+    drawGlowHeart(ctx, center, 84, 16, 'rgba(255,182,193,.18)');
+  }
+}
+
+function drawGlowHeart(ctx, x, y, r, color = 'rgba(255,107,157,.35)') {
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x - r * 0.4, y, r * 0.42, 0, Math.PI * 2);
+  ctx.arc(x + r * 0.4, y, r * 0.42, 0, Math.PI * 2);
+  ctx.moveTo(x - r * 0.8, y);
+  ctx.lineTo(x, y + r * 0.95);
+  ctx.lineTo(x + r * 0.8, y);
+  ctx.closePath();
+  ctx.fill();
+}
+
+function drawCharacter(ctx, type, x, y, opts = {}, now = performance.now()) {
+  const pose = opts.pose || 'idle';
+  const bob = opts.bob || 0;
+  const lean = opts.lean || 0;
+  const scale = opts.scale || 2.5;
+  const lift = opts.lift || 0;
+  const mouthLove = pose === 'kiss' || pose === 'love';
+  const blush = opts.blush ?? (pose === 'kiss' || pose === 'hug' || pose === 'love' ? 1 : 0);
+  const walk = pose === 'walk' ? Math.sin(now / 85) * 1.7 : 0;
+  const dance = pose === 'dance' ? Math.sin(now / 120) * 2.8 : 0;
+  const sit = pose === 'sit' ? 1 : 0;
+  const bike = pose === 'bike' ? 1 : 0;
+
+  ctx.save();
+  ctx.translate(x + lean * 2, y + bob + lift);
+
+  const p = (dx, dy, dw, dh, c) => {
+    ctx.fillStyle = c;
+    ctx.fillRect(dx * scale, dy * scale, dw * scale, dh * scale);
+  };
+
+  const headY = pose === 'shy' ? 1 : 0;
+  const faceY = 3 + headY;
+  const torsoY = 8 + (pose === 'hug' ? 1 : 0) + (pose === 'kiss' ? 0 : 0);
+  const armY = 8 + (pose === 'dance' ? -1 : 0);
+  const legY = 13 + (pose === 'sit' ? 2 : 0) + (pose === 'bike' ? 1 : 0);
+
+  if (type === 'pranjal') {
+    p(4, 0, 4, 1, '#2c1a0e');
+    p(3, 1, 6, 2, '#3d2612');
+    p(3, 3 + headY, 6, 5, '#f4a77a');
+    p(4, 4 + headY, 1, 1, '#1a0a2e');
+    p(7, 4 + headY, 1, 1, '#1a0a2e');
+    p(5, 7 + headY, 2, 1, mouthLove ? '#ffb7d2' : '#c0704a');
+    if (blush) {
+      p(3, 5 + headY, 1, 1, '#ff9ec0');
+      p(8, 5 + headY, 1, 1, '#ff9ec0');
+    }
+    p(3, torsoY, 6, 5, '#e40026');
+    p(5, torsoY, 2, 1, '#fff');
+    if (pose === 'hug') {
+      p(1, armY, 3, 3, '#f4a77a');
+      p(8, armY, 3, 3, '#f4a77a');
+      p(2, armY + 1, 2, 1, '#f4a77a');
+      p(8, armY + 1, 2, 1, '#f4a77a');
+    } else if (pose === 'kiss') {
+      p(1, armY, 2, 4, '#f4a77a');
+      p(9, armY, 2, 4, '#f4a77a');
+      p(2, armY + 1, 2, 2, '#f4a77a');
+      p(8, armY + 1, 2, 2, '#f4a77a');
+    } else if (pose === 'dance') {
+      p(0, armY - 1, 3, 2, '#f4a77a');
+      p(9, armY - 2, 3, 2, '#f4a77a');
+      p(2, armY + 1, 2, 4, '#f4a77a');
+      p(8, armY + 1, 2, 4, '#f4a77a');
+    } else if (pose === 'point') {
+      p(1, armY, 3, 2, '#f4a77a');
+      p(9, armY + 1, 3, 1, '#f4a77a');
+      p(2, armY + 1, 2, 3, '#f4a77a');
+      p(8, armY + 1, 2, 4, '#f4a77a');
+    } else {
+      p(1, armY, 2, 4, '#f4a77a');
+      p(9, armY, 2, 4, '#f4a77a');
+    }
+    p(3, legY, 2, 6, '#1a1a2e');
+    p(7, legY, 2, 6, '#1a1a2e');
+    if (bike) {
+      p(2, legY + 4 + walk, 3, 2, '#111');
+      p(7, legY + 4 - walk, 3, 2, '#111');
+    } else {
+      p(2, 19, 3, 1, '#111');
+      p(7, 19, 3, 1, '#111');
+    }
+  } else {
+    p(2, 0, 8, 2, '#1a3a4a');
+    p(2, 2, 8, 3, '#1a3a4a');
+    p(1, 5, 1, 4, '#1a3a4a');
+    p(10, 5, 1, 4, '#1a3a4a');
+    p(3, 3 + headY, 6, 6, '#c8956c');
+    p(4, 5 + headY, 1, 1, '#1a0a2e');
+    p(7, 5 + headY, 1, 1, '#1a0a2e');
+    p(4, 8 + headY, 4, 1, mouthLove ? '#ffb7d2' : '#9e5a3a');
+    if (blush) {
+      p(3, 6 + headY, 1, 1, '#ff9ec0');
+      p(8, 6 + headY, 1, 1, '#ff9ec0');
+    }
+    p(2, 9 + (pose === 'hug' ? 1 : 0), 8, 6, '#9b7ec8');
+    p(1, 9 + (pose === 'dance' ? -1 : 0), 1, 5, '#c4a8e8');
+    p(10, 9 + (pose === 'dance' ? -1 : 0), 1, 5, '#c4a8e8');
+    if (pose === 'hug') {
+      p(1, armY, 3, 3, '#c8956c');
+      p(8, armY, 3, 3, '#c8956c');
+      p(2, armY + 1, 2, 1, '#c8956c');
+      p(8, armY + 1, 2, 1, '#c8956c');
+    } else if (pose === 'kiss') {
+      p(1, armY, 2, 4, '#c8956c');
+      p(9, armY, 2, 4, '#c8956c');
+      p(2, armY + 1, 2, 2, '#c8956c');
+      p(8, armY + 1, 2, 2, '#c8956c');
+    } else if (pose === 'dance') {
+      p(0, armY - 2, 3, 2, '#c8956c');
+      p(9, armY - 1, 3, 2, '#c8956c');
+      p(2, armY + 1, 2, 4, '#c8956c');
+      p(8, armY + 1, 2, 4, '#c8956c');
+    } else if (pose === 'point') {
+      p(0, armY + 1, 3, 2, '#c8956c');
+      p(9, armY, 3, 1, '#c8956c');
+      p(2, armY + 1, 2, 3, '#c8956c');
+      p(8, armY + 1, 2, 4, '#c8956c');
+    } else {
+      p(1, armY, 2, 4, '#c8956c');
+      p(9, armY, 2, 4, '#c8956c');
+    }
+    p(2, 15 + sit, 8, 4, '#b399d8');
+    if (pose === 'bike') {
+      p(1, 15, 3, 1, '#4a3060');
+      p(7, 15, 3, 1, '#4a3060');
+    } else {
+      p(3, 19, 3, 1, '#4a3060');
+      p(7, 19, 3, 1, '#4a3060');
+    }
+  }
+
+  ctx.restore();
+}
+
+function drawGolgappe(ctx, W, H, now) {
+  const kind = sceneMotion?.kind || 'idle';
+  const p = motionProgress(now);
+
+  // Layered sky — warm evening market
+  const sky = ctx.createLinearGradient(0, 0, 0, H);
+  sky.addColorStop(0, '#1a3d0a');
+  sky.addColorStop(0.6, '#2d5c1a');
+  sky.addColorStop(1, '#0d2010');
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+
+  // Twinkling fairy lights string across top
+  ctx.strokeStyle = '#ffd700'; ctx.lineWidth = 1;
+  ctx.setLineDash([4, 8]);
+  ctx.beginPath(); ctx.moveTo(0, 30); ctx.lineTo(W, 30); ctx.stroke();
+  ctx.setLineDash([]);
+  for (let i = 0; i < 18; i++) {
+    const blink = 0.5 + 0.5 * Math.sin(now / 400 + i * 1.3);
+    ctx.fillStyle = `rgba(255,240,100,${0.5 + 0.5 * blink})`;
+    ctx.beginPath(); ctx.arc(24 + i * 24, 30, 3 + blink, 0, Math.PI * 2); ctx.fill();
+    // Drop glow under each bulb
+    const grd = ctx.createRadialGradient(24 + i * 24, 30, 0, 24 + i * 24, 44, 14);
+    grd.addColorStop(0, `rgba(255,240,100,${0.18 * blink})`);
+    grd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grd; ctx.fillRect(10 + i * 24, 28, 28, 26);
+  }
+
+  // Ground
+  const ground = ctx.createLinearGradient(0, 140, 0, H);
+  ground.addColorStop(0, '#3d2a1a'); ground.addColorStop(1, '#261508');
+  ctx.fillStyle = ground; ctx.fillRect(0, 140, W, H - 140);
+  // cobblestones
+  for (let row = 0; row < 2; row++) for (let col = 0; col < 12; col++) {
+    ctx.fillStyle = `rgba(80,55,30,${0.3 + (row + col) % 2 * 0.15})`;
+    ctx.fillRect(col * 38 + (row % 2) * 19, 148 + row * 16, 36, 14);
+  }
+
+  // Stall canopy - animated sway
+  const sway = Math.sin(now / 900) * 3;
+  ctx.fillStyle = '#ff6600';
+  ctx.beginPath();
+  ctx.moveTo(135, 48 + sway); ctx.lineTo(345, 48 - sway);
+  ctx.lineTo(350, 68 - sway); ctx.lineTo(130, 68 + sway);
+  ctx.closePath(); ctx.fill();
+  // Canopy scalloped edge
+  ctx.fillStyle = '#e55500';
+  for (let i = 0; i < 7; i++) {
+    ctx.beginPath();
+    ctx.arc(148 + i * 30, 68 + (i % 2) * 2 + sway * 0.5, 12, 0, Math.PI);
+    ctx.fill();
+  }
+
+  // Stall body
+  ctx.fillStyle = '#8b4513'; ctx.fillRect(148, 68, 200, 72);
+  ctx.fillStyle = '#6b3410'; ctx.fillRect(148, 68, 200, 10);
+  ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fillRect(148, 78, 200, 3);
+
+  // Sign
+  ctx.fillStyle = '#fff8e7';
+  ctx.font = 'bold 9px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('🫙 GOLGAPPE STALL', 248, 64 + sway * 0.3);
+  ctx.textAlign = 'left';
+
+  // Golgappa bowls animated
+  for (let i = 0; i < 3; i++) {
+    const bobY = Math.sin(now / 200 + i * 1.1) * 2;
+    const bx = 178 + i * 58, by = 116 + bobY;
+    // Bowl shadow
+    ctx.fillStyle = 'rgba(0,0,0,0.3)';
+    ctx.beginPath(); ctx.ellipse(bx + 18, by + 14, 20, 6, 0, 0, Math.PI * 2); ctx.fill();
+    // Bowl
+    ctx.fillStyle = ['#c0780a', '#d3a44c', '#b46f14'][i];
+    ctx.beginPath(); ctx.ellipse(bx + 18, by + 8, 20, 12, 0, 0, Math.PI * 2); ctx.fill();
+    // Golgappa pieces in bowl
+    for (let j = 0; j < 4; j++) {
+      const gx = bx + 8 + j * 8, gy = by + 4 + (j % 2) * 3;
+      ctx.fillStyle = '#c8a84a';
+      ctx.beginPath(); ctx.arc(gx, gy, 4, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#8B6914';
+      ctx.beginPath(); ctx.arc(gx, gy, 3, 0, Math.PI); ctx.fill();
+    }
+    // Pani splash if action
+    if (kind === 'spicy' || kind === 'challenge') {
+      for (let s = 0; s < 5; s++) {
+        const st = (now / 180 + s * 0.5) % (Math.PI * 2);
+        ctx.fillStyle = `rgba(100,180,255,${0.4 + 0.3 * Math.sin(st)})`;
+        ctx.beginPath();
+        ctx.arc(bx + 18 + Math.cos(st) * 12, by + Math.sin(st) * 6, 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+
+  // Lanterns hanging
+  for (let i = 0; i < 4; i++) {
+    const lx = 50 + i * 110, ly = 42 + Math.sin(now / 700 + i) * 4;
+    const lanternGlow = ctx.createRadialGradient(lx, ly, 0, lx, ly, 22);
+    lanternGlow.addColorStop(0, 'rgba(255,140,0,0.25)');
+    lanternGlow.addColorStop(1, 'rgba(255,140,0,0)');
+    ctx.fillStyle = lanternGlow; ctx.fillRect(lx - 22, ly - 22, 44, 44);
+    ctx.fillStyle = i % 2 ? '#e40026' : '#cc8800';
+    ctx.beginPath(); ctx.ellipse(lx, ly, 8, 12, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'rgba(255,200,100,0.7)';
+    ctx.beginPath(); ctx.ellipse(lx, ly, 5, 9, 0, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // Characters with smooth approach
+  const approach = easeInOutCubic(clamp01(p / 0.5));
+  const leftX = lerp(42, 102, approach);
+  const rightX = lerp(388, 318, approach);
+  const charBobL = Math.sin(now / 220) * 1.5;
+  const charBobR = Math.sin(now / 240 + 1) * 1.5;
+
+  const lPose = kind === 'feed' || kind === 'momoFeed' ? 'shy' : kind === 'spicy' || kind === 'momoSpice' ? 'dance' : kind === 'hug' ? 'hug' : 'idle';
+  const rPose = kind === 'feed' || kind === 'momoFeed' ? 'shy' : kind === 'pic' ? 'dance' : kind === 'hug' ? 'hug' : 'idle';
+  drawCharacter(ctx, 'pranjal', leftX, 90 + charBobL, { pose: lPose }, now);
+  drawCharacter(ctx, 'fareeza', rightX, 90 + charBobR, { pose: rPose }, now);
+
+  // ── Per-button overlays ──────────────────────────────────────
+  if (kind === 'spicy') {
+    // Chilli sparks flying off the bowl
+    for (let i = 0; i < 10; i++) {
+      const st = (now / 120 + i * 0.63) % (Math.PI * 2);
+      const sx = 220 + Math.cos(st) * (18 + i * 4), sy = 110 + Math.sin(st) * (10 + i * 2);
+      ctx.fillStyle = `rgba(255,${60 + i * 14},0,${0.7 - i * 0.06})`;
+      ctx.font = `${9 + i % 3}px monospace`; ctx.fillText(i % 2 ? '🌶️' : '🔥', sx, sy);
+    }
+    ctx.fillStyle = 'rgba(255,60,0,0.08)'; ctx.fillRect(0, 0, W, H);
+    drawParticleCloud(ctx, now, 6, 220, 90, 26, ['🌶️','😭','💦'], 'rgba(255,255,255,.85)', 11);
+  }
+  if (kind === 'feed') {
+    // Glowing hand-off
+    const feedGrd = ctx.createRadialGradient(210, 86, 0, 210, 86, 28);
+    feedGrd.addColorStop(0, 'rgba(255,182,193,0.45)'); feedGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = feedGrd; ctx.fillRect(182, 58, 56, 56);
+    floatingHearts(ctx, now, 5, 210, 72, 24, ['💕','🌸','💗']);
+    ctx.font = '16px monospace'; ctx.textAlign = 'center'; ctx.fillText('💕', 210, 84); ctx.textAlign = 'left';
+  }
+  if (kind === 'pic') {
+    // Camera viewfinder with flash
+    ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fillRect(148, 62, 148, 88);
+    ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.lineWidth = 2; ctx.strokeRect(148, 62, 148, 88);
+    // Corner brackets
+    [[[148,62],[168,62],[148,82]], [[296,62],[276,62],[296,82]], [[148,150],[168,150],[148,130]], [[296,150],[276,150],[296,130]]].forEach(pts => {
+      ctx.strokeStyle = '#ffd700'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(pts[0][0],pts[0][1]); ctx.lineTo(pts[1][0],pts[1][1]); ctx.moveTo(pts[0][0],pts[0][1]); ctx.lineTo(pts[2][0],pts[2][1]); ctx.stroke();
+    });
+    ctx.font = '14px monospace'; ctx.textAlign = 'center'; ctx.fillStyle = '#fff'; ctx.fillText('📸', 222, 106); ctx.textAlign = 'left';
+    // Flash strobe
+    if ((now % 2400) < 100) { ctx.fillStyle = 'rgba(255,255,255,0.65)'; ctx.fillRect(0,0,W,H); }
+    else if ((now % 2400) < 200) { ctx.fillStyle = 'rgba(255,255,255,0.2)'; ctx.fillRect(0,0,W,H); }
+  }
+  if (kind === 'challenge') {
+    // Two timer bars counting down + sweat drops
+    const bars = [[leftX + 14, 80], [rightX + 14, 80]];
+    bars.forEach(([bx, by], i) => {
+      const fill = 0.5 + 0.5 * Math.sin(now / 300 + i * Math.PI);
+      ctx.fillStyle = '#333'; ctx.fillRect(bx - 14, by, 28, 6);
+      ctx.fillStyle = fill > 0.5 ? '#e40026' : '#ff9800';
+      ctx.fillRect(bx - 14, by, 28 * fill, 6);
+    });
+    drawParticleCloud(ctx, now, 6, 222, 74, 22, ['😭','💦','🌶️'], 'rgba(255,255,255,.85)', 11);
+  }
+
+  const captions = { spicy:'spicy and worth it 🌶️', feed:'she got the best one 💕', pic:'best photo ever 📸', challenge:'who taps out first 😭', idle:'' };
+  if (captions[kind]) {
+    ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(140, 152, 190, 18);
+    ctx.fillStyle = '#ffd4e1'; ctx.font = 'bold 8px monospace';
+    ctx.textAlign = 'center'; ctx.fillText(captions[kind], 235, 164); ctx.textAlign = 'left';
+  }
+}
+
+function drawMomos(ctx, W, H, now) {
+  const kind = sceneMotion?.kind || 'steam';
+  const p = motionProgress(now);
+
+  // Deep warm interior
+  const sky = ctx.createLinearGradient(0, 0, 0, H);
+  sky.addColorStop(0, '#1a0a12'); sky.addColorStop(1, '#2d1220');
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+
+  // Bokeh lights in background (restaurant ambience)
+  for (let i = 0; i < 14; i++) {
+    const bx = (i * 71 + 22) % W;
+    const by = 15 + (i * 17) % 70;
+    const br = 4 + (i % 3) * 3;
+    const alpha = 0.08 + 0.06 * Math.sin(now / 500 + i);
+    const grd = ctx.createRadialGradient(bx, by, 0, bx, by, br * 3);
+    grd.addColorStop(0, `rgba(255,200,100,${alpha * 3})`);
+    grd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grd; ctx.fillRect(bx - br * 3, by - br * 3, br * 6, br * 6);
+  }
+
+  // Floor and walls
+  const floor = ctx.createLinearGradient(0, 130, 0, H);
+  floor.addColorStop(0, '#3b2414'); floor.addColorStop(1, '#1e0e08');
+  ctx.fillStyle = floor; ctx.fillRect(0, 130, W, H - 130);
+  // Wall panels
+  ctx.fillStyle = '#2a1508'; ctx.fillRect(0, 0, 6, H);
+  ctx.fillStyle = '#2a1508'; ctx.fillRect(W - 6, 0, 6, H);
+
+  // Table with nice shading
+  const tableGrd = ctx.createLinearGradient(0, 96, 0, 130);
+  tableGrd.addColorStop(0, '#7f3a22'); tableGrd.addColorStop(1, '#5f2b19');
+  ctx.fillStyle = tableGrd; ctx.fillRect(138, 96, 170, 22);
+  ctx.fillStyle = 'rgba(255,255,255,0.08)'; ctx.fillRect(138, 96, 170, 4); // sheen
+  ctx.fillStyle = '#3d1a0a'; ctx.fillRect(138, 118, 170, 4); // shadow edge
+  // Table legs
+  ctx.fillStyle = '#4a2010'; ctx.fillRect(148, 118, 8, 30); ctx.fillRect(292, 118, 8, 30);
+
+  // Window at back with warm light
+  const winGrd = ctx.createLinearGradient(155, 44, 155, 96);
+  winGrd.addColorStop(0, '#ffcf9d'); winGrd.addColorStop(1, '#ff8f59');
+  ctx.fillStyle = winGrd; ctx.fillRect(155, 44, 170, 52);
+  ctx.fillStyle = '#2a1020'; ctx.fillRect(163, 52, 154, 36);
+  // Window cross
+  ctx.fillStyle = '#3a2030'; ctx.fillRect(237, 52, 4, 36); ctx.fillRect(163, 68, 154, 4);
+  // Window glow spill
+  const winSpill = ctx.createRadialGradient(240, 68, 0, 240, 68, 80);
+  winSpill.addColorStop(0, 'rgba(255,180,100,0.12)'); winSpill.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = winSpill; ctx.fillRect(155, 44, 170, 100);
+
+  // Sign above window
+  ctx.fillStyle = '#ffe7b2'; ctx.font = 'bold 10px monospace';
+  ctx.textAlign = 'center'; ctx.fillText('MOMOS DATE', 240, 42); ctx.textAlign = 'left';
+
+  // Momo steamer / plate
+  const plateGrd = ctx.createRadialGradient(240, 108, 4, 240, 108, 28);
+  plateGrd.addColorStop(0, '#ffde9d'); plateGrd.addColorStop(1, '#d4a855');
+  ctx.fillStyle = plateGrd;
+  ctx.beginPath(); ctx.ellipse(240, 108, 42, 12, 0, 0, Math.PI * 2); ctx.fill();
+  // Momo pieces
+  for (let i = 0; i < 5; i++) {
+    const mx = 212 + i * 14, my = 104 + (i % 2) * 4;
+    ctx.fillStyle = '#fff4c7';
+    ctx.beginPath(); ctx.ellipse(mx, my, 8, 5, Math.sin(i) * 0.4, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#d4a855'; ctx.lineWidth = 0.8;
+    ctx.beginPath(); ctx.moveTo(mx, my - 2); ctx.lineTo(mx, my + 2); ctx.stroke();
+  }
+
+  // Steam that evolves
+  const steamAlpha = kind === 'steam' || kind === 'spice' ? 0.8 : 0.4;
+  steamPuffs(ctx, now, 240, 84, `rgba(255,230,205,${steamAlpha})`);
+
+  // Characters
+  const intro = p < 1;
+  const leftX = intro ? lerp(-32, 96, easeInOutCubic(p)) : 96;
+  const rightX = intro ? lerp(480, 348, easeInOutCubic(p)) : 348;
+
+  const leftPose = kind === 'hug' ? 'hug' : kind === 'love' ? 'love' : kind === 'feed' ? 'shy' : 'idle';
+  const rightPose = kind === 'hug' ? 'hug' : kind === 'love' ? 'love' : kind === 'feed' ? 'shy' : 'idle';
+
+  drawCharacter(ctx, 'pranjal', leftX, 88 + Math.sin(now / 200) * 1.2, { pose: leftPose }, now);
+  drawCharacter(ctx, 'fareeza', rightX, 88 - Math.sin(now / 220) * 1.2, { pose: rightPose }, now);
+
+  // ── Per-button mood overlays ────────────────────────────────────
+  if (kind === 'momoSteam') {
+    // Giant steam cloud rises, stars of steam
+    steamPuffs(ctx, now + 200, 200, 74, 'rgba(255,230,205,0.55)');
+    steamPuffs(ctx, now + 400, 240, 72, 'rgba(255,220,195,0.55)');
+    drawParticleCloud(ctx, now, 5, 224, 58, 18, ['🥟','☁️','✨'], 'rgba(255,255,255,.8)', 11);
+  }
+  if (kind === 'momoSpice') {
+    // Red heat shimmer + fire + sweat
+    ctx.fillStyle = 'rgba(255,40,0,0.06)'; ctx.fillRect(0,0,W,H);
+    for (let i = 0; i < 8; i++) {
+      const hx = 160 + i * 18, hy = 70 + Math.sin(now / 100 + i) * 10;
+      ctx.fillStyle = `rgba(255,${80 + i * 20},0,${0.4 + 0.3 * Math.sin(now/150+i)})`;
+      ctx.font = '11px monospace'; ctx.fillText(i % 2 ? '🌶️' : '🔥', hx, hy);
+    }
+    drawParticleCloud(ctx, now, 5, 224, 66, 20, ['😭','💦','🌶️'], 'rgba(255,255,255,.85)', 11);
+  }
+  if (kind === 'momoFeed') {
+    // Soft glow between them, petals
+    const feedGrd = ctx.createRadialGradient(224, 88, 0, 224, 88, 46);
+    feedGrd.addColorStop(0, 'rgba(255,182,193,0.32)'); feedGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = feedGrd; ctx.fillRect(178, 42, 92, 92);
+    floatingHearts(ctx, now, 6, 224, 72, 30, ['💗','💕','🌸','🥟']);
+    ctx.font = '14px monospace'; ctx.textAlign = 'center'; ctx.fillText('🫶', 224, 82); ctx.textAlign = 'left';
+  }
+  if (kind === 'momoChai') {
+    // Chai warmth — golden glow + steam
+    const chaiGrd = ctx.createRadialGradient(224, 80, 0, 224, 80, 52);
+    chaiGrd.addColorStop(0, 'rgba(255,180,60,0.22)'); chaiGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = chaiGrd; ctx.fillRect(172, 28, 104, 104);
+    steamPuffs(ctx, now, 224, 72, 'rgba(255,230,160,0.65)');
+    ctx.font = '15px monospace'; ctx.textAlign = 'center'; ctx.fillText('☕', 224, 80); ctx.textAlign = 'left';
+    floatingHearts(ctx, now + 300, 5, 224, 64, 28, ['💛','🌸','✨']);
+  }
+
+  ctx.fillStyle = 'rgba(0,0,0,0.4)'; ctx.fillRect(130, 152, 210, 18);
+  ctx.fillStyle = '#ffd4e1'; ctx.font = 'bold 8px monospace';
+  const capMap = { momoSteam:'share a plate, share a grin 🥟', momoSpice:'too spicy to be normal 😭', momoFeed:'you sure about that bite? 🫶', momoChai:'warm chai, warmer hands ☕' };
+  ctx.textAlign = 'center'; ctx.fillText(capMap[kind] || 'steam + spice + soft smiles', 235, 164); ctx.textAlign = 'left';
+}
+
+function drawBTS(ctx, W, H, now) {
+  const kind = sceneMotion?.kind || 'music';
+  const p = motionProgress(now);
+
+  // Deep purple concert sky
+  const sky = ctx.createLinearGradient(0, 0, 0, H);
+  sky.addColorStop(0, '#0a0520'); sky.addColorStop(0.5, '#180a3a'); sky.addColorStop(1, '#2a0f4a');
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+
+  // Spotlight beams (animated)
+  for (let i = 0; i < 4; i++) {
+    const angle = Math.sin(now / 1200 + i * 0.8) * 0.3 + (i - 1.5) * 0.25;
+    const cx = 120 + i * 74;
+    ctx.save();
+    ctx.globalAlpha = 0.07 + 0.04 * Math.sin(now / 600 + i);
+    const spotGrd = ctx.createLinearGradient(cx, 0, cx + Math.sin(angle) * 120, 140);
+    spotGrd.addColorStop(0, i % 2 ? '#c87dff' : '#ff69b4');
+    spotGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = spotGrd;
+    ctx.beginPath();
+    ctx.moveTo(cx - 8, 0); ctx.lineTo(cx + 8, 0);
+    ctx.lineTo(cx + Math.sin(angle) * 80 + 50, 140);
+    ctx.lineTo(cx + Math.sin(angle) * 80 - 50, 140);
+    ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+
+  // Stage floor glow
+  const stageGrd = ctx.createLinearGradient(0, 120, 0, H);
+  stageGrd.addColorStop(0, '#1a1028'); stageGrd.addColorStop(1, '#0a0820');
+  ctx.fillStyle = stageGrd; ctx.fillRect(0, 120, W, H - 120);
+  // Stage edge glowing line
+  for (let x = 0; x < W; x += 2) {
+    const glow = 0.5 + 0.5 * Math.sin(now / 180 + x * 0.04);
+    ctx.fillStyle = `rgba(${x % 4 < 2 ? '200,120,255' : '255,107,157'},${0.5 * glow})`;
+    ctx.fillRect(x, 120, 2, 2);
+  }
+
+  // Screen / backdrop
+  ctx.fillStyle = '#111827'; ctx.fillRect(80, 14, 280, 100);
+  ctx.fillStyle = '#0d1120'; ctx.fillRect(84, 18, 272, 92);
+  // Screen content animated
+  const screenPulse = 0.3 + 0.2 * Math.sin(now / 300);
+  ctx.fillStyle = `rgba(100,60,180,${screenPulse})`; ctx.fillRect(84, 18, 272, 92);
+  // BTS logo (simplified)
+  ctx.fillStyle = `rgba(180,130,255,${0.6 + 0.3 * Math.sin(now / 400)})`;
+  ctx.font = 'bold 28px monospace'; ctx.textAlign = 'center';
+  ctx.fillText('💜', 224, 74); ctx.textAlign = 'left';
+  ctx.fillStyle = '#d9b7ff'; ctx.font = 'bold 9px monospace';
+  ctx.textAlign = 'center'; ctx.fillText('BTS DATE NIGHT', 224, 26); ctx.textAlign = 'left';
+
+  // VJ bars at bottom of screen
+  for (let i = 0; i < 8; i++) {
+    const barH = 8 + 14 * Math.abs(Math.sin(now / 120 + i * 0.7));
+    ctx.fillStyle = i % 2 ? 'rgba(200,100,255,0.7)' : 'rgba(255,107,157,0.7)';
+    ctx.fillRect(86 + i * 34, 108 - barH, 28, barH);
+  }
+
+  // Floating notes everywhere
+  floatingNotes(ctx, now, 52, 50, 5, 'rgba(255,255,255,0.75)');
+  floatingNotes(ctx, now + 200, 366, 54, 5, 'rgba(200,130,255,0.75)');
+  petalFalling(ctx, now, 6, 224, 80, 160, 64, 'rgba(199,125,255,0.35)');
+
+  // Characters
+  const travel = easeInOutCubic(clamp01(p / 0.5));
+  const leftX = lerp(24, 126, travel);
+  const rightX = lerp(420, 284, travel);
+  const sway = Math.sin(now / 180) * 2.5;
+
+  drawCharacter(ctx, 'pranjal', leftX, 98 + sway, {
+    pose: kind === 'dance' ? 'dance' : kind === 'earbuds' ? 'shy' : 'idle'
+  }, now);
+  drawCharacter(ctx, 'fareeza', rightX, 98 - sway, {
+    pose: kind === 'dance' ? 'dance' : kind === 'earbuds' ? 'shy' : 'idle'
+  }, now);
+
+  // ── Per-button BTS overlays ─────────────────────────────────────
+  if (kind === 'earbuds') {
+    // Animated cord with music notes pulsing along it
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)'; ctx.lineWidth = 1.5;
+    ctx.setLineDash([3, 5]);
+    ctx.beginPath();
+    ctx.moveTo(leftX + 30, 100);
+    ctx.bezierCurveTo(160, 132, 252, 132, rightX + 5, 100);
+    ctx.stroke(); ctx.setLineDash([]);
+    // Notes travel along cord
+    for (let i = 0; i < 4; i++) {
+      const t = ((now / 800 + i * 0.25) % 1);
+      const bx = lerp(leftX + 30, rightX + 5, t);
+      const by = 100 + 32 * Math.sin(t * Math.PI); // arc along bezier approx
+      ctx.fillStyle = `rgba(200,140,255,${0.5 + 0.4 * Math.sin(now/200+i)})`;
+      ctx.font = '10px monospace'; ctx.fillText(['♪','♫','♬','•'][i], bx, by);
+    }
+    floatingNotes(ctx, now, 224, 56, 5, 'rgba(200,140,255,0.75)');
+  }
+  if (kind === 'dance') {
+    // Strobe + wild particles + disco floor
+    const beat = Math.sin(now / 60) > 0.7;
+    if (beat) { ctx.fillStyle = 'rgba(180,80,255,0.18)'; ctx.fillRect(0,0,W,H); }
+    // Disco tiles on floor
+    for (let i = 0; i < 8; i++) {
+      const dColor = ['rgba(255,107,157','rgba(170,120,255','rgba(255,215,0'][i%3];
+      const pulse = 0.2 + 0.3 * Math.abs(Math.sin(now / 90 + i * 0.8));
+      ctx.fillStyle = `${dColor},${pulse})`;
+      ctx.fillRect(50 + i * 52, 136, 44, 28);
+    }
+    drawParticleCloud(ctx, now, 10, 224, 60, 34, ['💜','✨','🌟','💫'], 'rgba(255,255,255,.9)', 13);
+    // Big heart pulse in center
+    const hp = 0.3 + 0.3 * Math.abs(Math.sin(now / 120));
+    drawGlowHeart(ctx, 224, 72, 20 + hp * 8, `rgba(180,100,255,${0.3 + hp * 0.2})`);
+  }
+  if (kind === 'selfie') {
+    // Viewfinder with live countdown
+    ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(134, 60, 176, 72);
+    ctx.strokeStyle = 'rgba(255,255,255,0.75)'; ctx.lineWidth = 2; ctx.strokeRect(134, 60, 176, 72);
+    // Corner brackets
+    [[[134,60],[154,60],[134,80]], [[310,60],[290,60],[310,80]], [[134,132],[154,132],[134,112]], [[310,132],[290,132],[310,112]]].forEach(pts => {
+      ctx.strokeStyle = '#ffd700'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(pts[0][0],pts[0][1]); ctx.lineTo(pts[1][0],pts[1][1]); ctx.moveTo(pts[0][0],pts[0][1]); ctx.lineTo(pts[2][0],pts[2][1]); ctx.stroke();
+    });
+    // Countdown number
+    const countNum = Math.max(1, 3 - Math.floor((now % 3000) / 1000));
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 18px monospace';
+    ctx.textAlign = 'center'; ctx.fillText(countNum, 222, 104); ctx.textAlign = 'left';
+    ctx.font = '12px monospace'; ctx.textAlign = 'center'; ctx.fillText('📸', 222, 124); ctx.textAlign = 'left';
+    // Flash
+    if ((now % 3000) < 80) { ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.fillRect(0,0,W,H); }
+  }
+  if (kind === 'sing') {
+    // Microphone aura + karaoke bar scrolling
+    ctx.fillStyle = 'rgba(255,215,0,0.12)'; ctx.fillRect(0,0,W,H);
+    floatingNotes(ctx, now, 224, 50, 8, 'rgba(255,255,255,0.82)');
+    // Karaoke bar
+    ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(90, 148, 264, 16);
+    const fillW = ((now / 3000) % 1) * 260;
+    ctx.fillStyle = '#ffd700'; ctx.fillRect(92, 150, fillW, 12);
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 7px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('🎤 off-key but adorable 🎤', 222, 160); ctx.textAlign = 'left';
+    drawParticleCloud(ctx, now, 5, 224, 60, 22, ['🎵','✨','🎶'], 'rgba(255,255,255,.82)', 11);
+  }
+
+  ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(120, 152, 208, 18);
+  ctx.fillStyle = '#ffd4e1'; ctx.font = 'bold 8px monospace';
+  const capBTS = { earbuds:'one song, two hearts 🎧', dance:'purple sky, loud hearts 💜', selfie:'frame this forever 📸', sing:'off-key but absolutely real 🎤' };
+  ctx.textAlign = 'center'; ctx.fillText(capBTS[kind] || 'tiny concert, huge feelings', 224, 164); ctx.textAlign = 'left';
+}
+
+function drawF1(ctx, W, H, now) {
+  const kind = sceneMotion?.kind || 'spark';
+  const p = motionProgress(now);
+
+  // Dark F1 night race sky
+  const sky = ctx.createLinearGradient(0, 0, 0, H);
+  sky.addColorStop(0, '#120003'); sky.addColorStop(1, '#0a0005');
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+
+  // Star field
+  for (let i = 0; i < 20; i++) {
+    const sx = (i * 53 + 17) % W, sy = (i * 31) % 90;
+    ctx.fillStyle = `rgba(255,255,200,${0.4 + 0.4 * Math.sin(now / 600 + i)})`;
+    ctx.fillRect(sx, sy, 1, 1);
+  }
+
+  // Race circuit TV screen (backdrop)
+  ctx.fillStyle = '#13080d'; ctx.fillRect(82, 14, 280, 108);
+  ctx.fillStyle = '#0a0408'; ctx.fillRect(86, 18, 272, 100);
+  // Green circuit inside screen
+  ctx.fillStyle = '#1a6b32'; ctx.fillRect(90, 22, 264, 92);
+  // Track on circuit
+  ctx.fillStyle = '#2b2b2b'; ctx.fillRect(100, 50, 244, 38);
+  ctx.fillStyle = '#444'; ctx.fillRect(102, 52, 240, 34);
+  // Red Ferrari zone
+  ctx.fillStyle = '#e40026'; ctx.fillRect(178, 54, 90, 28);
+  // TV overlay
+  ctx.fillStyle = 'rgba(0,0,0,0.55)'; ctx.fillRect(86, 18, 272, 16);
+  ctx.fillStyle = '#ffd4e1'; ctx.font = 'bold 9px monospace';
+  ctx.textAlign = 'center'; ctx.fillText('F1 DATE MODE 🔴', 222, 30); ctx.textAlign = 'left';
+  ctx.fillStyle = '#e40026'; ctx.font = 'bold 7px monospace';
+  ctx.textAlign = 'center'; ctx.fillText('LECLERC VIBES ONLY', 222, 42); ctx.textAlign = 'left';
+  // Screen border
+  ctx.strokeStyle = '#444'; ctx.lineWidth = 4; ctx.strokeRect(82, 14, 280, 108);
+  // Screen scan line
+  const scanY = 18 + ((now / 8) % 100);
+  ctx.fillStyle = 'rgba(255,255,255,0.03)'; ctx.fillRect(86, scanY, 272, 2);
+
+  // Pit wall / stands
+  const standGrd = ctx.createLinearGradient(0, 138, 0, H);
+  standGrd.addColorStop(0, '#301000'); standGrd.addColorStop(1, '#150800');
+  ctx.fillStyle = standGrd; ctx.fillRect(0, 138, W, H - 138);
+  ctx.fillStyle = '#6b2b00'; ctx.fillRect(0, 126, W, 14);
+  // Track
+  ctx.fillStyle = '#ffd700'; ctx.fillRect(18, 124, W - 36, 3);
+  // Crowd pixels
+  for (let row = 0; row < 2; row++) for (let col = 0; col < 18; col++) {
+    const crowdColors = ['#e40026','#fff','#ffd700','#444'];
+    ctx.fillStyle = crowdColors[(row * 7 + col) % 4] + '88';
+    ctx.fillRect(col * 26 + (row * 12), 154 + row * 12, 18, 8);
+  }
+
+  // Ferrari car moving across track
+  const carX = kind === 'win'
+    ? 60 + ((now / 4) % (W + 80)) - 40
+    : 160 + Math.sin(now / 500) * 22;
+  const carY = 88 + Math.sin(now / 260) * 1.8;
+  // Car shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.35)';
+  ctx.beginPath(); ctx.ellipse(carX + 36, carY + 22, 38, 6, 0, 0, Math.PI * 2); ctx.fill();
+  // Car body
+  ctx.fillStyle = '#e40026'; ctx.fillRect(carX, carY, 70, 16);
+  ctx.fillStyle = '#ff1c2f'; ctx.fillRect(carX + 10, carY - 7, 38, 9);
+  // Cockpit
+  ctx.fillStyle = '#2d0d12'; ctx.fillRect(carX + 18, carY - 11, 14, 6);
+  ctx.fillStyle = '#ff6b9d'; ctx.fillRect(carX + 20, carY - 13, 10, 4);
+  // Wheels
+  ctx.fillStyle = '#111';
+  ctx.beginPath(); ctx.ellipse(carX + 12, carY + 16, 7, 7, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(carX + 56, carY + 16, 7, 7, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#555';
+  ctx.beginPath(); ctx.ellipse(carX + 12, carY + 16, 4, 4, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(carX + 56, carY + 16, 4, 4, 0, 0, Math.PI * 2); ctx.fill();
+  // Halo
+  ctx.fillStyle = '#ffde55'; ctx.fillRect(carX + 22, carY - 4, 26, 3);
+  // Exhaust sparks on win
+  if (kind === 'win') {
+    for (let s = 0; s < 8; s++) {
+      const st = (now / 60 + s * 0.4) % (Math.PI * 2);
+      ctx.fillStyle = `rgba(255,${100 + s * 18},0,${0.7 - s * 0.07})`;
+      ctx.beginPath();
+      ctx.arc(carX - 4 + Math.sin(st) * 6, carY + 8 + Math.cos(st) * 4, 2, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // Ferrari flag / love board
+  const flagGlow = 0.3 + 0.25 * Math.sin(now / 200);
+  ctx.fillStyle = `rgba(255,107,157,${flagGlow})`;
+  ctx.fillRect(26, 26, 52, 22);
+  ctx.fillStyle = '#120714'; ctx.font = 'bold 7px monospace';
+  ctx.textAlign = 'center'; ctx.fillText('LOVE LAP', 52, 40); ctx.textAlign = 'left';
+
+  // Characters
+  const stage = motionPhase(now, [0.38, 0.72]);
+  const approach = easeInOutCubic(clamp01(p / 0.38));
+  let leftX = lerp(58, kind === 'kiss' ? 164 : kind === 'hug' ? 158 : kind === 'love' ? 152 : 88, approach);
+  let rightX = lerp(362, kind === 'kiss' ? 232 : kind === 'hug' ? 238 : kind === 'love' ? 248 : 314, approach);
+  const leftPose = kind === 'hug' ? 'hug' : kind === 'kiss' ? 'kiss' : kind === 'love' ? 'love' : kind === 'forza' ? 'point' : 'idle';
+  const rightPose = leftPose;
+
+  if (stage === 2 && (kind === 'hug' || kind === 'kiss' || kind === 'love')) {
+    const retreat = easeInOutCubic(clamp01((p - 0.72) / 0.28));
+    leftX = lerp(leftX, 88, retreat); rightX = lerp(rightX, 314, retreat);
+  }
+
+  drawCharacter(ctx, 'pranjal', leftX, 110 + Math.sin(now / 200) * 1.2, { pose: leftPose }, now);
+  drawCharacter(ctx, 'fareeza', rightX, 110 - Math.sin(now / 200) * 1.2, { pose: rightPose }, now);
+
+  // ── Per-button F1 overlays ───────────────────────────────────────
+  if (kind === 'forza') {
+    // Red flag wave + engine rev particles
+    const flagT = Math.sin(now / 80);
+    ctx.fillStyle = '#e40026';
+    ctx.beginPath();
+    ctx.moveTo(36, 30); ctx.lineTo(36, 52);
+    for (let i = 0; i < 5; i++) ctx.lineTo(52 + i * 10, 38 + flagT * (i % 2 ? 4 : -4));
+    ctx.lineTo(88, 30); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 6px monospace'; ctx.fillText('FORZA', 42, 44);
+    drawParticleCloud(ctx, now, 10, 224, 56, 30, ['🔴','✨','🏎️','🔥'], 'rgba(255,255,255,.85)', 12);
+    ctx.fillStyle = '#fff2d7'; ctx.font = 'bold 10px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('FORZA FERRARI!!! 🔴', 224, 46); ctx.textAlign = 'left';
+    // Screen flash red
+    ctx.fillStyle = 'rgba(228,0,38,0.07)'; ctx.fillRect(0,0,W,H);
+  }
+  if (stage === 1 && kind === 'hug') {
+    const hGrd = ctx.createRadialGradient(224, 94, 0, 224, 94, 48);
+    hGrd.addColorStop(0, 'rgba(255,182,193,0.38)'); hGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = hGrd; ctx.fillRect(176, 46, 96, 96);
+    floatingHearts(ctx, now, 6, 224, 74, 36, ['🤗','💗','💕','🌸']);
+  }
+  if (stage === 1 && kind === 'kiss') {
+    // Pink aura burst
+    const kGrd = ctx.createRadialGradient(224, 80, 0, 224, 80, 34);
+    kGrd.addColorStop(0, 'rgba(255,182,193,0.6)'); kGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = kGrd; ctx.fillRect(190, 46, 68, 68);
+    drawParticleCloud(ctx, now, 10, 224, 72, 24, ['💋','✨','💗','🌸'], 'rgba(255,255,255,.9)', 12);
+    // Blush circles on characters
+    ctx.fillStyle = 'rgba(255,150,180,0.45)';
+    ctx.beginPath(); ctx.ellipse(leftX + 32, 104, 10, 6, 0, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(rightX + 6, 104, 10, 6, 0, 0, Math.PI*2); ctx.fill();
+  }
+  if (stage === 1 && kind === 'love') {
+    // Slow golden hearts + I love you text with glow
+    const lgGrd = ctx.createRadialGradient(224, 72, 0, 224, 72, 56);
+    lgGrd.addColorStop(0, 'rgba(255,215,0,0.22)'); lgGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = lgGrd; ctx.fillRect(168, 16, 112, 112);
+    floatingHearts(ctx, now, 8, 224, 68, 48, ['💌','💞','💖','🌸','✨']);
+    ctx.fillStyle = 'rgba(255,215,0,0.9)'; ctx.font = 'bold 10px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('I love you 💌', 224, 56); ctx.textAlign = 'left';
+  }
+  if (kind === 'win') {
+    // Gold screen flash + confetti explosion
+    ctx.fillStyle = 'rgba(255,215,0,0.22)'; ctx.fillRect(82, 14, 280, 108);
+    // Confetti
+    for (let i = 0; i < 20; i++) {
+      const ct = (now / 200 + i * 0.42) % (Math.PI * 2);
+      const cx = 160 + i * 16, cy = 14 + ((now / 6 + i * 14) % 110);
+      ctx.fillStyle = ['#e40026','#ffd700','#fff','#ff9800'][i % 4];
+      ctx.fillRect(cx, cy, 4, 4);
+    }
+    drawParticleCloud(ctx, now, 14, 224, 62, 32, ['🏆','✨','💖','🔴'], 'rgba(255,255,255,.95)', 14);
+    ctx.fillStyle = '#ffe7b2'; ctx.font = 'bold 12px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('LECLERC WINS!! 🏆', 224, 48); ctx.textAlign = 'left';
+    // Victory flash
+    if ((now % 1600) < 80) { ctx.fillStyle = 'rgba(255,215,0,0.3)'; ctx.fillRect(0,0,W,H); }
+  }
+  if (kind === 'dnf') {
+    // Sad rain effect
+    ctx.fillStyle = 'rgba(0,0,50,0.3)'; ctx.fillRect(0,0,W,H);
+    for (let i = 0; i < 20; i++) {
+      const rx = (i * 37 + now / 5) % W;
+      const ry = (i * 29 + now / 4) % H;
+      ctx.fillStyle = 'rgba(100,140,255,0.4)';
+      ctx.fillRect(rx, ry, 1, 6);
+    }
+    ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(100, 36, 248, 56);
+    ctx.fillStyle = '#ffd9e7'; ctx.font = 'bold 9px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('Ferrari heartbreak.exe 😭', 224, 56);
+    ctx.fillText('emotional support hug unlocked 🤗', 224, 72); ctx.textAlign = 'left';
+    drawParticleCloud(ctx, now, 5, 224, 62, 20, ['😭','💔','🌧️'], 'rgba(255,255,255,.75)', 11);
+  }
+}
+
+function drawTrain(ctx, W, H, now) {
+  const kind = sceneMotion?.kind || 'spot';
+  const p = motionProgress(now);
+
+  const isSunset = kind === 'sunset';
+  const sky = ctx.createLinearGradient(0, 0, 0, 120);
+  if (isSunset) {
+    sky.addColorStop(0, '#ff6030'); sky.addColorStop(0.5, '#ff9a5a'); sky.addColorStop(1, '#4a1a50');
+  } else {
+    sky.addColorStop(0, '#050d1e'); sky.addColorStop(1, '#0d1a2e');
+  }
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, 120);
+
+  // Stars (night only)
+  if (!isSunset) {
+    for (let i = 0; i < 22; i++) {
+      const sx = (i * 57 + 13) % W, sy = (i * 23) % 100;
+      const twinkle = 0.3 + 0.7 * Math.abs(Math.sin(now / 800 + i));
+      ctx.fillStyle = `rgba(255,255,200,${twinkle * 0.85})`;
+      ctx.fillRect(sx, sy, i % 5 === 0 ? 2 : 1, i % 5 === 0 ? 2 : 1);
+    }
+  }
+
+  // Sunset sun / moon
+  if (isSunset) {
+    const sunGrd = ctx.createRadialGradient(400, 60, 0, 400, 60, 36);
+    sunGrd.addColorStop(0, 'rgba(255,240,100,0.95)'); sunGrd.addColorStop(0.5, 'rgba(255,160,60,0.6)');
+    sunGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = sunGrd; ctx.fillRect(364, 24, 72, 72);
+    ctx.fillStyle = '#ffdf60';
+    ctx.beginPath(); ctx.arc(400, 60, 20, 0, Math.PI * 2); ctx.fill();
+  } else {
+    ctx.fillStyle = 'rgba(255,250,200,0.92)';
+    ctx.beginPath(); ctx.arc(408, 40, 16, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'rgba(5,13,30,0.88)';
+    ctx.beginPath(); ctx.arc(414, 36, 13, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // Platform / station
+  const platGrd = ctx.createLinearGradient(0, 116, 0, H);
+  platGrd.addColorStop(0, '#888'); platGrd.addColorStop(1, '#555');
+  ctx.fillStyle = platGrd; ctx.fillRect(0, 116, W, H - 116);
+  ctx.fillStyle = '#aaa'; ctx.fillRect(0, 114, W, 6);
+  // Yellow safety line
+  ctx.fillStyle = '#ffd700'; ctx.fillRect(0, 132, W, 4);
+  // Track sleepers
+  for (let x = 0; x < W; x += 28) {
+    ctx.fillStyle = '#5a3a18'; ctx.fillRect(x, 154, 20, 28);
+  }
+  // Rails
+  ctx.fillStyle = '#888'; ctx.fillRect(0, 158, W, 4);
+  ctx.fillStyle = '#888'; ctx.fillRect(0, 170, W, 4);
+
+  // Platform lights
+  for (let i = 0; i < 6; i++) {
+    const lx = 36 + i * 76;
+    ctx.fillStyle = '#4a4a4a'; ctx.fillRect(lx, 88, 4, 28);
+    const litGrd = ctx.createRadialGradient(lx + 2, 86, 0, lx + 2, 86, 30);
+    const litAlpha = 0.12 + 0.08 * Math.sin(now / 1100 + i);
+    litGrd.addColorStop(0, `rgba(255,230,160,${litAlpha * 4})`);
+    litGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = litGrd; ctx.fillRect(lx - 28, 56, 60, 60);
+    ctx.fillStyle = '#ffe8a0'; ctx.fillRect(lx - 2, 82, 8, 6);
+  }
+
+  // Chai stall (for chai action)
+  if (kind === 'chai') {
+    ctx.fillStyle = '#8b4513'; ctx.fillRect(160, 88, 90, 36);
+    ctx.fillStyle = '#cc6600'; ctx.fillRect(160, 84, 90, 8);
+    ctx.fillStyle = '#fff4c7'; ctx.font = 'bold 7px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('☕ CHAI', 205, 100); ctx.textAlign = 'left';
+    steamPuffs(ctx, now, 206, 80, 'rgba(255,230,205,0.65)');
+  }
+
+  // Incoming train
+  const trainX = kind === 'spot'
+    ? lerp(W + 20, 110, easeInOutCubic(clamp01(p / 0.7)))
+    : kind === 'chai' ? 340 : 112;
+
+  // Train body
+  const trainGrd = ctx.createLinearGradient(trainX, 70, trainX, 118);
+  trainGrd.addColorStop(0, '#1565c0'); trainGrd.addColorStop(1, '#0d47a1');
+  ctx.fillStyle = trainGrd; ctx.fillRect(trainX, 70, 148, 52);
+  // Train roof
+  ctx.fillStyle = '#1976d2'; ctx.fillRect(trainX, 68, 148, 8);
+  // Train windows (lit from inside)
+  for (let i = 0; i < 4; i++) {
+    const wgrd = ctx.createLinearGradient(trainX + 10 + i * 34, 78, trainX + 10 + i * 34, 104);
+    wgrd.addColorStop(0, '#fff9e6'); wgrd.addColorStop(1, '#ffe0a0');
+    ctx.fillStyle = wgrd; ctx.fillRect(trainX + 10 + i * 34, 78, 26, 24);
+    // Silhouettes in windows
+    ctx.fillStyle = 'rgba(80,40,0,0.3)';
+    ctx.beginPath(); ctx.ellipse(trainX + 23 + i * 34, 84, 5, 6, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillRect(trainX + 18 + i * 34, 90, 10, 12);
+  }
+  // Front stripe
+  ctx.fillStyle = '#f57f17'; ctx.fillRect(trainX, 70, 12, 52);
+  // Bottom stripe
+  ctx.fillStyle = '#ffd700'; ctx.fillRect(trainX + 2, 116, 146, 4);
+  // Wheels
+  for (let i = 0; i < 3; i++) {
+    ctx.fillStyle = '#111';
+    ctx.beginPath(); ctx.ellipse(trainX + 20 + i * 50, 124, 9, 9, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#666';
+    ctx.beginPath(); ctx.ellipse(trainX + 20 + i * 50, 124, 5, 5, 0, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // Characters
+  const leftX = kind === 'spot' ? 48 : kind === 'chai' ? 68 : kind === 'hum' ? 56 : 50;
+  const rightX = kind === 'spot' ? 362 : kind === 'chai' ? 318 : kind === 'hum' ? 358 : 356;
+
+  drawCharacter(ctx, 'pranjal', leftX, 86 + Math.sin(now / 210) * 1.3, {
+    pose: kind === 'spot' ? 'point' : kind === 'chai' ? 'shy' : kind === 'hum' ? 'dance' : 'sit'
+  }, now);
+  drawCharacter(ctx, 'fareeza', rightX, 86 - Math.sin(now / 230) * 1.3, {
+    pose: kind === 'spot' ? 'point' : kind === 'chai' ? 'shy' : kind === 'hum' ? 'dance' : 'sit'
+  }, now);
+
+  // ── Per-button train overlays ──────────────────────────────────
+  if (kind === 'spot') {
+    // Big SPOTTED! speech bubble + arrow pointing at train
+    ctx.fillStyle = '#fff'; ctx.fillRect(trainX - 20, 50, 88, 22);
+    ctx.fillStyle = '#e40026'; ctx.font = 'bold 8px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('SPOTTED! 🚂', trainX + 24, 65); ctx.textAlign = 'left';
+    // Arrow
+    ctx.strokeStyle = '#ffd700'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(trainX + 24, 72); ctx.lineTo(trainX + 24, 84); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(trainX + 18, 80); ctx.lineTo(trainX + 24, 88); ctx.lineTo(trainX + 30, 80); ctx.fill();
+    drawParticleCloud(ctx, now, 5, trainX + 24, 46, 18, ['✨','🚂','⭐'], 'rgba(255,255,255,.85)', 10);
+  }
+  if (kind === 'sunset') {
+    // Orange wash over everything
+    ctx.fillStyle = 'rgba(255,120,40,0.12)'; ctx.fillRect(0,0,W,H);
+    // Sun reflection on platform
+    const refGrd = ctx.createLinearGradient(0, 120, 0, 150);
+    refGrd.addColorStop(0, 'rgba(255,150,60,0.25)'); refGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = refGrd; ctx.fillRect(0, 120, W, 30);
+    floatingHearts(ctx, now + 200, 4, 224, 60, 36, ['🌅','💛','✨']);
+    ctx.fillStyle = '#fff2d0'; ctx.font = 'bold 9px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('platform light turns gold 🌅', 224, 48); ctx.textAlign = 'left';
+  }
+  if (kind === 'chai') {
+    // Steam from chai cups + warm glow
+    steamPuffs(ctx, now, 200, 76, 'rgba(255,220,160,0.7)');
+    steamPuffs(ctx, now + 300, 248, 76, 'rgba(255,220,160,0.6)');
+    const chaiGrd = ctx.createRadialGradient(224, 84, 0, 224, 84, 46);
+    chaiGrd.addColorStop(0, 'rgba(255,180,60,0.18)'); chaiGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = chaiGrd; ctx.fillRect(178, 38, 92, 92);
+    floatingHearts(ctx, now + 100, 4, 224, 62, 28, ['☕','💛','🌸']);
+  }
+  if (kind === 'hum') {
+    // Musical staff lines + floating notes
+    for (let i = 0; i < 4; i++) {
+      ctx.strokeStyle = `rgba(255,255,200,${0.15 + i * 0.05})`; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(80, 48 + i * 6); ctx.lineTo(W - 80, 48 + i * 6); ctx.stroke();
+    }
+    floatingNotes(ctx, now, 224, 44, 8, 'rgba(255,255,180,0.88)');
+    // Lyrics wave
+    ctx.fillStyle = 'rgba(255,255,200,0.7)'; ctx.font = 'bold 8px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('~ la la la... ~', 224, 38); ctx.textAlign = 'left';
+  }
+
+  ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(124, 152, 210, 18);
+  ctx.fillStyle = '#ffd4e1'; ctx.font = 'bold 8px monospace';
+  const capTrain = { spot:'THERE IT IS! 🚂', sunset:'platform light turns gold 🌅', chai:'shared chai, shared silence ☕', hum:'a train hums by 🎵' };
+  ctx.textAlign = 'center'; ctx.fillText(capTrain[kind] || 'train spotting time', 229, 164); ctx.textAlign = 'left';
+}
+
+function drawStarsScene(ctx, W, H, now) {
+  const kind = sceneMotion?.kind || 'wish';
+
+  // Deep cosmos sky
+  const sky = ctx.createLinearGradient(0, 0, 0, H);
+  sky.addColorStop(0, '#010008'); sky.addColorStop(0.6, '#06001a'); sky.addColorStop(1, '#0d0825');
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+
+  // Milky way band
+  ctx.save();
+  ctx.globalAlpha = 0.07;
+  const mwGrd = ctx.createLinearGradient(0, 30, W, 90);
+  mwGrd.addColorStop(0, 'rgba(200,180,255,0)'); mwGrd.addColorStop(0.5, 'rgba(200,180,255,1)');
+  mwGrd.addColorStop(1, 'rgba(200,180,255,0)');
+  ctx.fillStyle = mwGrd; ctx.fillRect(0, 10, W, 80);
+  ctx.restore();
+
+  // Stars with parallax (different layers move at different speeds)
+  const starData = [
+    {n:30, speed:0.012, size:[1,1], alpha:[0.4,0.9]},
+    {n:18, speed:0.022, size:[1,2], alpha:[0.6,1.0]},
+    {n:8,  speed:0.035, size:[2,3], alpha:[0.7,1.0]},
+  ];
+  starData.forEach(({n, speed, size, alpha}, layer) => {
+    for (let i = 0; i < n; i++) {
+      const sx = ((i * (57 + layer * 23) + now * speed) % W + W) % W;
+      const sy = (i * (29 + layer * 11)) % 110;
+      const twinkle = 0.5 + 0.5 * Math.sin(now / (400 + i * 50) + i * 2.1);
+      const a = alpha[0] + (alpha[1] - alpha[0]) * twinkle;
+      const s = size[0] + (size[1] - size[0]) * Math.abs(Math.sin(i * 1.3));
+      ctx.fillStyle = i % 5 === 0 ? `rgba(255,220,120,${a})` : `rgba(255,255,220,${a})`;
+      ctx.fillRect(sx, sy, s, s);
+    }
+  });
+
+  // Moon (crescent)
+  const moonGrd = ctx.createRadialGradient(398, 42, 0, 398, 42, 22);
+  moonGrd.addColorStop(0, 'rgba(255,252,200,0.98)'); moonGrd.addColorStop(0.7, 'rgba(255,240,160,0.9)');
+  moonGrd.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = moonGrd; ctx.fillRect(376, 20, 44, 44);
+  ctx.fillStyle = 'rgba(255,250,200,0.95)';
+  ctx.beginPath(); ctx.arc(398, 42, 19, 0, Math.PI * 2); ctx.fill();
+  // Crater bite
+  ctx.fillStyle = sky; // fake transparent with sky color
+  ctx.fillStyle = '#06001a';
+  ctx.beginPath(); ctx.arc(407, 36, 13, 0, Math.PI * 2); ctx.fill();
+  // Moon glow halo
+  const moonHalo = ctx.createRadialGradient(398, 42, 14, 398, 42, 50);
+  moonHalo.addColorStop(0, 'rgba(255,252,200,0.08)'); moonHalo.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = moonHalo; ctx.fillRect(348, -8, 100, 100);
+
+  // Shooting star
+  if (kind === 'shoot') {
+    const st = (now / 14) % (W + 100);
+    ctx.strokeStyle = 'rgba(255,255,200,0.9)'; ctx.lineWidth = 2;
+    ctx.setLineDash([]);
+    ctx.beginPath();
+    ctx.moveTo(st - 80, 22); ctx.lineTo(st, 48); ctx.stroke();
+    // Trail fade
+    const grad = ctx.createLinearGradient(st - 80, 22, st, 48);
+    grad.addColorStop(0, 'rgba(255,255,200,0)'); grad.addColorStop(1, 'rgba(255,255,200,0.6)');
+    ctx.strokeStyle = grad; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.moveTo(st - 80, 22); ctx.lineTo(st, 48); ctx.stroke();
+    drawParticleCloud(ctx, now, 8, 224, 52, 24, ['🌠','✨','💫'], 'rgba(255,255,255,.82)', 11);
+  }
+
+  // Named star
+  if (kind === 'namestar') {
+    // Bright star with sparkle cross
+    for (let a = 0; a < 4; a++) {
+      const ang = a * Math.PI / 2 + now / 600;
+      const glen = 18 + 6 * Math.sin(now / 300);
+      ctx.strokeStyle = `rgba(255,245,150,${0.6 + 0.3 * Math.sin(now / 200)})`;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(200, 42); ctx.lineTo(200 + Math.cos(ang) * glen, 42 + Math.sin(ang) * glen);
+      ctx.stroke();
+    }
+    ctx.fillStyle = 'rgba(255,245,150,0.95)';
+    ctx.beginPath(); ctx.arc(200, 42, 5, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#fff2d7'; ctx.font = 'bold 9px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('⭐ Fareeza', 202, 30); ctx.textAlign = 'left';
+  }
+
+  // Rooftop / railing
+  const roofGrd = ctx.createLinearGradient(0, 128, 0, H);
+  roofGrd.addColorStop(0, '#2a2035'); roofGrd.addColorStop(1, '#0d0820');
+  ctx.fillStyle = roofGrd; ctx.fillRect(0, 128, W, H - 128);
+  // Concrete lip
+  ctx.fillStyle = '#3a3048'; ctx.fillRect(0, 124, W, 8);
+  // Railing posts + horizontal bar
+  for (let i = 0; i < 14; i++) {
+    ctx.fillStyle = '#5a4a70'; ctx.fillRect(22 + i * 30, 108, 4, 22);
+  }
+  ctx.fillStyle = '#7a6a90'; ctx.fillRect(22, 106, W - 44, 4);
+  // Pot plants on railing
+  for (let i of [2, 7, 11]) {
+    ctx.fillStyle = '#4a3000'; ctx.fillRect(22 + i * 30 - 2, 98, 10, 8);
+    ctx.fillStyle = '#2d6b1a'; ctx.beginPath(); ctx.arc(27 + i * 30, 96, 7, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // Characters sitting/lying
+  drawCharacter(ctx, 'pranjal', 108, 108 + Math.sin(now / 250) * 1, {
+    pose: kind === 'exist' ? 'sit' : kind === 'wish' ? 'shy' : 'point'
+  }, now);
+  drawCharacter(ctx, 'fareeza', 286, 108 - Math.sin(now / 280) * 1, {
+    pose: kind === 'exist' ? 'sit' : kind === 'wish' ? 'shy' : 'point'
+  }, now);
+
+  // ── Per-button stars overlays ──────────────────────────────────
+  if (kind === 'namestar') {
+    // Pulsing named star with rays + sparkle burst
+    for (let a = 0; a < 8; a++) {
+      const ang = a * Math.PI / 4 + now / 400;
+      const len = 16 + 8 * Math.abs(Math.sin(now / 300 + a));
+      ctx.strokeStyle = `rgba(255,240,120,${0.5 + 0.3 * Math.sin(now/200+a)})`; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(200 + Math.cos(ang)*8, 42 + Math.sin(ang)*8);
+      ctx.lineTo(200 + Math.cos(ang)*len, 42 + Math.sin(ang)*len); ctx.stroke();
+    }
+    const nGrd = ctx.createRadialGradient(200, 42, 0, 200, 42, 40);
+    nGrd.addColorStop(0, `rgba(255,245,150,${0.4 + 0.2 * Math.sin(now/160)})`);
+    nGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = nGrd; ctx.fillRect(160, 2, 80, 80);
+    ctx.fillStyle = 'rgba(255,240,120,0.95)'; ctx.beginPath(); ctx.arc(200, 42, 6, 0, Math.PI*2); ctx.fill();
+    // Nameplate
+    ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(160, 24, 88, 16);
+    ctx.fillStyle = '#fff2d7'; ctx.font = 'bold 9px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('⭐ FAREEZA', 204, 35); ctx.textAlign = 'left';
+    drawParticleCloud(ctx, now, 6, 200, 40, 24, ['✨','💫','⭐'], 'rgba(255,255,255,.85)', 10);
+  }
+  if (kind === 'exist') {
+    // Soft purple aura, slow floating motes
+    const eGrd = ctx.createRadialGradient(224, 108, 0, 224, 108, 80);
+    eGrd.addColorStop(0, 'rgba(160,120,255,0.14)'); eGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = eGrd; ctx.fillRect(144, 28, 160, 160);
+    // Soft motes
+    for (let i = 0; i < 10; i++) {
+      const mt = (now / 600 + i * 0.6) % (Math.PI * 2);
+      const mx = 224 + Math.cos(mt + i) * (20 + i * 5);
+      const my = 80 + Math.sin(mt * 0.7 + i) * 18 - i * 3;
+      ctx.fillStyle = `rgba(200,180,255,${0.3 + 0.2 * Math.sin(mt)})`;
+      ctx.beginPath(); ctx.arc(mx, my, 2 + Math.sin(mt) * 1, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.fillStyle = 'rgba(200,180,255,0.6)'; ctx.font = '9px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('just being is the event', 224, 52); ctx.textAlign = 'left';
+  }
+  if (kind === 'wish') {
+    // Wish orb pulses + golden ring
+    const wR = 24 + 6 * Math.abs(Math.sin(now / 200));
+    const wishGrd = ctx.createRadialGradient(224, 72, 0, 224, 72, wR * 1.5);
+    wishGrd.addColorStop(0, `rgba(255,220,100,${0.5 + 0.2 * Math.sin(now/160)})`);
+    wishGrd.addColorStop(0.6, `rgba(255,200,60,0.2)`);
+    wishGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = wishGrd; ctx.fillRect(224 - wR*2, 72 - wR*2, wR*4, wR*4);
+    ctx.fillStyle = 'rgba(255,240,120,0.9)'; ctx.font = '20px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('💫', 224, 80); ctx.textAlign = 'left';
+    // Expanding rings
+    for (let r = 0; r < 3; r++) {
+      const ringR = ((now / 400 + r * 0.33) % 1) * 60;
+      const ringA = 0.4 * (1 - ringR / 60);
+      ctx.strokeStyle = `rgba(255,220,100,${ringA})`; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(224, 72, ringR, 0, Math.PI * 2); ctx.stroke();
+    }
+    floatingHearts(ctx, now + 200, 4, 224, 60, 32, ['💫','✨','🌟']);
+  }
+  if (kind === 'shoot') {
+    // Faster shooting star + wish text
+    const st = (now / 10) % (W + 120);
+    const sGrd = ctx.createLinearGradient(st - 100, 18, st, 50);
+    sGrd.addColorStop(0, 'rgba(255,255,200,0)'); sGrd.addColorStop(1, 'rgba(255,255,220,0.95)');
+    ctx.strokeStyle = sGrd; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(st - 100, 18); ctx.lineTo(st, 50); ctx.stroke();
+    // Sparkle head
+    ctx.fillStyle = '#fffce0'; ctx.beginPath(); ctx.arc(st, 50, 3, 0, Math.PI*2); ctx.fill();
+    drawParticleCloud(ctx, now, 10, 224, 54, 28, ['🌠','✨','💫','⭐'], 'rgba(255,255,255,.88)', 12);
+    ctx.fillStyle = '#fff2d7'; ctx.font = 'bold 9px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('make a wish — quick! 💫', 224, 42); ctx.textAlign = 'left';
+  }
+
+  ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(110, 152, 224, 18);
+  ctx.fillStyle = '#ffd4e1'; ctx.font = 'bold 8px monospace';
+  const capStar = { namestar:'not scientifically valid. emotionally real. ⭐', exist:'just being is the event 🌌', wish:'one sky, one wish 💫', shoot:'both wished the same thing, probably 🌠' };
+  ctx.textAlign = 'center'; ctx.fillText(capStar[kind] || 'quiet, but not empty', 222, 164); ctx.textAlign = 'left';
+}
+
+function drawIIT(ctx, W, H, now) {
+  const kind = sceneMotion?.kind || 'future';
+  const p = motionProgress(now);
+
+  // Evening blue campus sky
+  const sky = ctx.createLinearGradient(0, 0, 0, H);
+  sky.addColorStop(0, '#071428'); sky.addColorStop(0.6, '#0a1e3a'); sky.addColorStop(1, '#152035');
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+
+  // Stars low in sky
+  for (let i = 0; i < 14; i++) {
+    const sx = (i * 63 + 20) % W, sy = (i * 19) % 70;
+    ctx.fillStyle = `rgba(255,255,200,${0.25 + 0.25 * Math.sin(now / 700 + i)})`;
+    ctx.fillRect(sx, sy, 1, 1);
+  }
+
+  // Lake reflection
+  const lakeGrd = ctx.createLinearGradient(0, 104, 0, H);
+  lakeGrd.addColorStop(0, '#0d2d4a'); lakeGrd.addColorStop(1, '#061828');
+  ctx.fillStyle = lakeGrd; ctx.fillRect(0, 104, W, H - 104);
+  // Lake shimmer ripples
+  for (let i = 0; i < 5; i++) {
+    const ripX = 60 + i * 70 + Math.sin(now / 900 + i) * 12;
+    const ripY = 122 + (i % 3) * 6;
+    ctx.strokeStyle = `rgba(100,180,255,${0.08 + 0.04 * Math.sin(now / 600 + i)})`;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.ellipse(ripX, ripY, 22, 6, 0, 0, Math.PI * 2); ctx.stroke();
+  }
+  // Bank
+  ctx.fillStyle = '#2a3a20'; ctx.fillRect(0, 92, W, 16);
+  // Grass texture
+  for (let gx = 4; gx < W; gx += 10) {
+    const gh = 4 + Math.sin(gx * 0.3 + now / 800) * 2;
+    ctx.fillStyle = '#3a5a28'; ctx.fillRect(gx, 92 - gh, 2, gh + 2);
+  }
+
+  // Main academic building
+  ctx.fillStyle = '#1a2840'; ctx.fillRect(170, 8, 130, 84);
+  ctx.fillStyle = '#243858'; ctx.fillRect(166, 4, 138, 12);
+  // Columns
+  for (let i = 0; i < 4; i++) {
+    const colX = 182 + i * 30;
+    ctx.fillStyle = '#2a3a55'; ctx.fillRect(colX, 16, 12, 72);
+    ctx.fillStyle = 'rgba(255,255,255,0.04)'; ctx.fillRect(colX, 16, 3, 72);
+  }
+  // Windows lit
+  for (let row = 0; row < 2; row++) for (let col = 0; col < 3; col++) {
+    const wx = 184 + col * 38, wy = 22 + row * 28;
+    const winOn = (row * 7 + col * 3 + Math.floor(now / 2000)) % 3 > 0;
+    ctx.fillStyle = winOn ? `rgba(255,220,100,${0.55 + 0.2 * Math.sin(now / 1000 + col)})` : '#0d1628';
+    ctx.fillRect(wx, wy, 24, 20);
+    if (winOn) {
+      const wGrd = ctx.createRadialGradient(wx + 12, wy + 10, 0, wx + 12, wy + 10, 22);
+      wGrd.addColorStop(0, 'rgba(255,220,100,0.15)'); wGrd.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = wGrd; ctx.fillRect(wx - 10, wy - 10, 44, 40);
+    }
+  }
+
+  // Trees
+  const treePos = [[38, 36], [96, 28], [350, 32], [400, 22]];
+  treePos.forEach(([tx, ty]) => {
+    const sway = Math.sin(now / 1100 + tx * 0.05) * 2;
+    // Trunk
+    ctx.fillStyle = '#6b4226'; ctx.fillRect(tx - 4, ty + 44, 8, 40);
+    // Canopy layers
+    [[26, 0],[22, 10],[18, 18]].forEach(([r, dy]) => {
+      ctx.fillStyle = `rgba(30,80,20,${0.85 + 0.1 * Math.sin(now / 800 + tx)})`;
+      ctx.beginPath(); ctx.ellipse(tx + sway * 0.4, ty + dy, r, r * 0.85, sway * 0.02, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = `rgba(50,110,30,${0.5})`;
+      ctx.beginPath(); ctx.ellipse(tx + sway * 0.4 - 4, ty + dy - 2, r * 0.6, r * 0.5, 0, 0, Math.PI * 2); ctx.fill();
+    });
+  });
+
+  // Path lights
+  for (let i = 0; i < 5; i++) {
+    const plx = 48 + i * 82;
+    ctx.fillStyle = '#5a4a30'; ctx.fillRect(plx - 2, 76, 4, 18);
+    const plGrd = ctx.createRadialGradient(plx, 74, 0, plx, 74, 28);
+    plGrd.addColorStop(0, 'rgba(255,230,140,0.3)'); plGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = plGrd; ctx.fillRect(plx - 28, 46, 56, 56);
+    ctx.fillStyle = '#ffe07a'; ctx.fillRect(plx - 3, 72, 6, 5);
+  }
+
+  // Characters walking
+  const walkP = easeInOutCubic(clamp01(p / 0.6));
+  const leftX = kind === 'future' || kind === 'lake' ? lerp(74, 118, walkP) : 96;
+  const rightX = kind === 'future' || kind === 'lake' ? lerp(368, 322, walkP) : 350;
+
+  drawCharacter(ctx, 'pranjal', leftX, 60 + Math.sin(now / 190) * 1.2, {
+    pose: kind === 'future' || kind === 'lake' ? 'walk' : kind === 'flower' ? 'point' : 'idle'
+  }, now);
+  drawCharacter(ctx, 'fareeza', rightX, 60 - Math.sin(now / 210) * 1.2, {
+    pose: kind === 'future' || kind === 'lake' ? 'walk' : kind === 'flower' ? 'shy' : 'idle'
+  }, now);
+
+  // ── Per-button IIT overlays ─────────────────────────────────────
+  if (kind === 'lake') {
+    // Ripple rings on lake + reflection shimmer
+    for (let r = 0; r < 4; r++) {
+      const ripR = 20 + r * 18 + ((now / 600 + r * 0.25) % 1) * 20;
+      const ripA = 0.25 * (1 - (ripR - 20) / 80);
+      ctx.strokeStyle = `rgba(100,180,255,${ripA})`; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.ellipse(224, 118, ripR, ripR * 0.3, 0, 0, Math.PI * 2); ctx.stroke();
+    }
+    // Reflection of couple in lake
+    ctx.save(); ctx.globalAlpha = 0.18; ctx.scale(1, -0.3);
+    drawCharacter(ctx, 'pranjal', leftX, -420, { pose: 'idle' }, now);
+    drawCharacter(ctx, 'fareeza', rightX, -420, { pose: 'idle' }, now);
+    ctx.restore();
+    floatingHearts(ctx, now + 100, 4, 224, 60, 30, ['🌊','💙','💚']);
+  }
+  if (kind === 'future') {
+    // Thought bubbles with future plans
+    const plans = ['🇩🇪 Germany', '🏎️ F1 live', '📚 PhD', '💕 together'];
+    for (let i = 0; i < 4; i++) {
+      const bt = (now / 1200 + i * 0.25) % 1;
+      const bx = 80 + i * 82 + Math.sin(now / 600 + i) * 4;
+      const by = 36 - bt * 24;
+      const ba = bt < 0.7 ? bt / 0.7 : 1 - (bt - 0.7) / 0.3;
+      ctx.fillStyle = `rgba(255,255,255,${ba * 0.15})`; ctx.beginPath(); ctx.arc(bx, by, 18, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = `rgba(200,220,255,${ba})`; ctx.font = '7px monospace';
+      ctx.textAlign = 'center'; ctx.fillText(plans[i], bx, by + 3); ctx.textAlign = 'left';
+    }
+    drawParticleCloud(ctx, now, 5, 224, 52, 24, ['📚','💫','🌟'], 'rgba(200,200,255,.8)', 10);
+  }
+  if (kind === 'flower') {
+    // Petals burst out + big flower emoji
+    petalFalling(ctx, now, 10, 224, 56, 90, 50, 'rgba(255,182,193,0.55)');
+    const fGrd = ctx.createRadialGradient(224, 60, 0, 224, 60, 36);
+    fGrd.addColorStop(0, 'rgba(255,182,193,0.35)'); fGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = fGrd; ctx.fillRect(188, 24, 72, 72);
+    ctx.font = '18px monospace'; ctx.textAlign = 'center'; ctx.fillText('🌸', 224, 66); ctx.textAlign = 'left';
+    floatingHearts(ctx, now + 200, 5, 224, 50, 30, ['💗','🌸','💕']);
+  }
+  if (kind === 'promise') {
+    // Golden oath glow + F1 car silhouette
+    const pGrd = ctx.createRadialGradient(224, 64, 0, 224, 64, 58);
+    pGrd.addColorStop(0, 'rgba(255,215,0,0.22)'); pGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = pGrd; ctx.fillRect(166, 6, 116, 116);
+    // Handshake / pinky promise visual
+    ctx.fillStyle = '#fff2d7'; ctx.font = 'bold 9px monospace';
+    ctx.textAlign = 'center'; ctx.fillText('Germany. F1. Together. 🏎️', 224, 46); ctx.textAlign = 'left';
+    // Tiny F1 car crossing screen
+    const promCarX = (now / 5) % (W + 60) - 30;
+    ctx.fillStyle = '#e40026'; ctx.fillRect(promCarX, 56, 36, 9);
+    ctx.fillStyle = '#111'; ctx.beginPath(); ctx.ellipse(promCarX + 6, 66, 4, 4, 0, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(promCarX + 28, 66, 4, 4, 0, 0, Math.PI*2); ctx.fill();
+    drawParticleCloud(ctx, now, 6, 224, 58, 28, ['🏎️','💕','✨'], 'rgba(255,255,255,.82)', 11);
+  }
+
+  ctx.fillStyle = '#d9b7ff'; ctx.font = 'bold 8px monospace';
+  ctx.textAlign = 'center'; ctx.fillText('campus walk, future talk', 224, 22); ctx.textAlign = 'left';
+  ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(100, 152, 248, 18);
+  ctx.fillStyle = '#ffd4e1'; ctx.font = 'bold 8px monospace';
+  const capIIT = { future:'steps forward, plans louder 📚', lake:'walk by the lake, share a dream 🌊', flower:'picked a flower for her 🌸', promise:'Germany. F1. Together. 💕🏎️' };
+  ctx.textAlign = 'center'; ctx.fillText(capIIT[kind] || 'quiet dreams with loud hope', 224, 164); ctx.textAlign = 'left';
+}
+
+function drawDream(ctx, W, H, now) {
+  const start = dreamStartAt || now;
+  const elapsed = Math.max(0, now - start);
+  const total = 10600;
+  const phaseLength = total / 4;
+  const phase = Math.min(3, Math.floor(elapsed / phaseLength));
+  const phaseT = clamp01((elapsed - phase * phaseLength) / phaseLength);
+  const ease = easeInOutCubic(phaseT);
+  const fadeIn = clamp01(elapsed / 800);
+
+  // Phase-specific sky backgrounds
+  const sky = ctx.createLinearGradient(0, 0, 0, H);
+  if (phase === 0) {
+    sky.addColorStop(0, '#04020c'); sky.addColorStop(1, '#160e2a');
+  } else if (phase === 1) {
+    sky.addColorStop(0, '#100608'); sky.addColorStop(1, '#2a1218');
+  } else if (phase === 2) {
+    sky.addColorStop(0, lerp(0x10, 0xff, ease) < 128 ? '#180810' : '#d05020',1);
+    sky.addColorStop(0, `hsl(${lerp(270, 20, ease)},70%,${lerp(6, 40, ease)}%)`);
+    sky.addColorStop(1, `hsl(${lerp(260, 10, ease)},60%,${lerp(10, 22, ease)}%)`);
+  } else {
+    sky.addColorStop(0, '#f0b060'); sky.addColorStop(0.5, '#d07840'); sky.addColorStop(1, '#120c1a');
+  }
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+
+  // Ambient fade-in overlay
+  ctx.fillStyle = `rgba(0,0,0,${1 - fadeIn})`; ctx.fillRect(0, 0, W, H);
+
+  // Stars (phases 0–2)
+  if (phase < 3) {
+    const starCount = phase === 2 ? Math.floor(42 * (1 - ease)) : 42;
+    for (let i = 0; i < starCount; i++) {
+      const sx = (i * 61 + now / 20) % W, sy = (i * 17) % (H * 0.6);
+      const twinkle = 0.4 + 0.6 * Math.abs(Math.sin(now / 500 + i * 1.7));
+      ctx.fillStyle = i % 4 === 0 ? `rgba(255,220,120,${twinkle * 0.9})` : `rgba(255,255,240,${twinkle * 0.6})`;
+      ctx.fillRect(sx, sy, i % 6 === 0 ? 2 : 1, i % 6 === 0 ? 2 : 1);
+    }
+  }
+
+  // Moon (phases 0 and 1)
+  if (phase < 2) {
+    const moonX = 372, moonY = 32;
+    const moonGrd = ctx.createRadialGradient(moonX, moonY, 0, moonX, moonY, 20);
+    moonGrd.addColorStop(0, 'rgba(255,252,200,0.96)'); moonGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = moonGrd; ctx.fillRect(moonX - 20, moonY - 20, 40, 40);
+    ctx.fillStyle = 'rgba(255,250,200,0.92)';
+    ctx.beginPath(); ctx.arc(moonX, moonY, 17, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = phase === 0 ? '#04020c' : '#100608';
+    ctx.beginPath(); ctx.arc(moonX + 7, moonY - 4, 12, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // Sun (phase 3)
+  if (phase === 3) {
+    const sunGrd = ctx.createRadialGradient(380, 32, 0, 380, 32, 48);
+    sunGrd.addColorStop(0, 'rgba(255,230,100,0.95)');
+    sunGrd.addColorStop(0.4, 'rgba(255,160,60,0.6)');
+    sunGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = sunGrd; ctx.fillRect(332, -16, 96, 96);
+    ctx.fillStyle = '#ffe870';
+    ctx.beginPath(); ctx.arc(380, 32, 18, 0, Math.PI * 2); ctx.fill();
+    // Sun rays
+    for (let r = 0; r < 8; r++) {
+      const ra = r * Math.PI / 4 + now / 1200;
+      ctx.strokeStyle = 'rgba(255,220,80,0.35)'; ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(380 + Math.cos(ra) * 22, 32 + Math.sin(ra) * 22);
+      ctx.lineTo(380 + Math.cos(ra) * 34, 32 + Math.sin(ra) * 34);
+      ctx.stroke();
+    }
+  }
+
+  // ── PHASE 0: Bicycle ride ──────────────────────────────────────
+  if (phase === 0) {
+    // Ground/road
+    const road = ctx.createLinearGradient(0, 126, 0, H);
+    road.addColorStop(0, '#1a1020'); road.addColorStop(1, '#0a0810');
+    ctx.fillStyle = road; ctx.fillRect(0, 126, W, H - 126);
+    // Road markings
+    ctx.fillStyle = '#554a6a'; ctx.fillRect(0, 122, W, 6);
+    for (let rx = 0; rx < W; rx += 48) {
+      const dashX = (rx + now / 6) % (W + 48) - 48;
+      ctx.fillStyle = 'rgba(255,215,0,0.5)'; ctx.fillRect(dashX, 136, 28, 3);
+    }
+
+    // House with warm light
+    ctx.fillStyle = '#2a1828'; ctx.fillRect(280, 54, 130, 72);
+    ctx.fillStyle = '#1e1020'; ctx.fillRect(278, 52, 4, 74); // side shadow
+    // Roof
+    ctx.fillStyle = '#3d1a30';
+    ctx.beginPath(); ctx.moveTo(272, 54); ctx.lineTo(345, 26); ctx.lineTo(418, 54); ctx.closePath(); ctx.fill();
+    // Windows glowing
+    for (let wi = 0; wi < 3; wi++) {
+      const wgrd = ctx.createRadialGradient(300 + wi * 36, 76, 0, 300 + wi * 36, 76, 16);
+      wgrd.addColorStop(0, 'rgba(255,220,100,0.8)'); wgrd.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = wgrd; ctx.fillRect(284 + wi * 36, 60, 32, 26);
+      ctx.fillStyle = `rgba(255,210,80,${0.75 + 0.15 * Math.sin(now / 800 + wi)})`;
+      ctx.fillRect(288 + wi * 36, 64, 22, 18);
+    }
+    // Door
+    ctx.fillStyle = '#8b4513'; ctx.fillRect(335, 94, 22, 32);
+    ctx.fillStyle = 'rgba(255,200,80,0.5)'; ctx.fillRect(336, 95, 20, 30);
+
+    // Bicycle trail / ground shadow
+    const bx = lerp(-50, 196, ease);
+    ctx.fillStyle = 'rgba(0,0,0,0.3)';
+    ctx.beginPath(); ctx.ellipse(bx + 22, 132, 32, 5, 0, 0, Math.PI * 2); ctx.fill();
+    // Bike wheels
+    const wheelRot = now / 80;
+    for (let w = 0; w < 2; w++) {
+      const wx = bx + (w === 0 ? 6 : 36);
+      ctx.strokeStyle = '#aaa'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(wx, 124, 10, 0, Math.PI * 2); ctx.stroke();
+      // Spokes
+      for (let s = 0; s < 6; s++) {
+        const sa = s * Math.PI / 3 + wheelRot;
+        ctx.strokeStyle = '#888'; ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(wx, 124);
+        ctx.lineTo(wx + Math.cos(sa) * 9, 124 + Math.sin(sa) * 9);
+        ctx.stroke();
+      }
+      // Tire
+      ctx.strokeStyle = '#333'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(wx, 124, 10, 0, Math.PI * 2); ctx.stroke();
+    }
+    // Bike frame
+    ctx.strokeStyle = '#c0c0c0'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(bx + 6, 124); ctx.lineTo(bx + 20, 108); ctx.lineTo(bx + 36, 124); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(bx + 20, 108); ctx.lineTo(bx + 36, 108); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(bx + 36, 108); ctx.lineTo(bx + 36, 124); ctx.stroke();
+    // Handlebar
+    ctx.beginPath(); ctx.moveTo(bx + 36, 108); ctx.lineTo(bx + 42, 102); ctx.lineTo(bx + 44, 106); ctx.stroke();
+
+    drawCharacter(ctx, 'pranjal', bx + 8, 88 + Math.sin(now / 130) * 1.8, { pose: 'bike' }, now);
+    drawCharacter(ctx, 'fareeza', 312 + Math.sin(now / 160) * 2, 88, { pose: 'idle' }, now);
+
+    sceneText(ctx, '🚲 to her house...', 170, 20, 'rgba(180,150,255,0.8)', 8);
+
+    // House glow spill onto road
+    const houseSpill = ctx.createRadialGradient(344, 126, 0, 344, 126, 60);
+    houseSpill.addColorStop(0, 'rgba(255,200,80,0.08)'); houseSpill.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = houseSpill; ctx.fillRect(284, 86, 120, 80);
+
+  // ── PHASE 1: Cozy kitchen ──────────────────────────────────────
+  } else if (phase === 1) {
+    // Kitchen interior warm
+    const kitchenGrd = ctx.createLinearGradient(0, 0, 0, H);
+    kitchenGrd.addColorStop(0, '#1a0c08'); kitchenGrd.addColorStop(1, '#2d1810');
+    ctx.fillStyle = kitchenGrd; ctx.fillRect(0, 0, W, H);
+
+    // Warm ambient glow (center light)
+    const ceilGrd = ctx.createRadialGradient(224, 0, 0, 224, 0, 120);
+    ceilGrd.addColorStop(0, 'rgba(255,200,100,0.18)'); ceilGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = ceilGrd; ctx.fillRect(0, 0, W, 120);
+
+    // Kitchen window
+    const winGrd = ctx.createLinearGradient(136, 0, 136, 92);
+    winGrd.addColorStop(0, '#ffcf9d'); winGrd.addColorStop(1, '#ff8f59');
+    ctx.fillStyle = winGrd; ctx.fillRect(136, 12, 192, 80);
+    ctx.fillStyle = '#1d0e1a'; ctx.fillRect(144, 20, 176, 64);
+    ctx.fillStyle = '#2c1828'; ctx.fillRect(228, 20, 4, 64); ctx.fillRect(144, 50, 176, 4);
+    // Window glow
+    const wSpill = ctx.createRadialGradient(232, 52, 0, 232, 52, 80);
+    wSpill.addColorStop(0, 'rgba(255,180,100,0.14)'); wSpill.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = wSpill; ctx.fillRect(152, 12, 160, 100);
+
+    // Countertop
+    ctx.fillStyle = '#7f3a22'; ctx.fillRect(0, 92, W, 22);
+    ctx.fillStyle = 'rgba(255,255,255,0.07)'; ctx.fillRect(0, 92, W, 3);
+    ctx.fillStyle = '#3d1a0a'; ctx.fillRect(0, 112, W, 4);
+    // Lower cabinets
+    ctx.fillStyle = '#5a2a14'; ctx.fillRect(0, 116, W, H - 116);
+    // Tiles on wall above counter
+    for (let tx = 0; tx < W; tx += 22) for (let ty = 64; ty < 92; ty += 22) {
+      ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.lineWidth = 0.5;
+      ctx.strokeRect(tx, ty, 22, 22);
+    }
+
+    // Pot on stove
+    const potGrd = ctx.createLinearGradient(195, 66, 195, 92);
+    potGrd.addColorStop(0, '#7f4a00'); potGrd.addColorStop(1, '#4a2800');
+    ctx.fillStyle = potGrd; ctx.fillRect(183, 76, 88, 18);
+    ctx.fillStyle = '#9a5c00'; ctx.fillRect(180, 72, 94, 8);
+    // Pot handles
+    ctx.strokeStyle = '#666'; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.arc(183, 80, 7, Math.PI * 0.5, Math.PI * 1.5); ctx.stroke();
+    ctx.beginPath(); ctx.arc(271, 80, 7, Math.PI * -0.5, Math.PI * 0.5); ctx.stroke();
+    // Lid
+    ctx.fillStyle = '#8b5000'; ctx.fillRect(190, 70, 74, 6);
+    ctx.fillStyle = '#5a3200'; ctx.fillRect(220, 66, 16, 6);
+    // Stove ring glow
+    const stoveGrd = ctx.createRadialGradient(227, 92, 0, 227, 92, 30);
+    stoveGrd.addColorStop(0, 'rgba(255,100,30,0.25)'); stoveGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = stoveGrd; ctx.fillRect(197, 62, 60, 60);
+    // Steam
+    steamPuffs(ctx, now, 227, 66, 'rgba(255,230,205,0.75)');
+
+    // Spoon / ladle on counter
+    ctx.strokeStyle = '#c0c0c0'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.ellipse(158, 80, 8, 5, 0.5, 0, Math.PI * 2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(162, 83); ctx.lineTo(176, 102); ctx.stroke();
+
+    // Characters close together, soft lighting
+    const kitchenBobL = Math.sin(now / 200) * 1.2;
+    const kitchenBobR = Math.sin(now / 220 + 0.8) * 1.2;
+    drawCharacter(ctx, 'pranjal', 72 + Math.sin(now / 180) * 1.5, 86 + kitchenBobL, { pose: 'shy' }, now);
+    drawCharacter(ctx, 'fareeza', 322 - Math.sin(now / 200) * 1.5, 86 + kitchenBobR, { pose: 'shy' }, now);
+
+    floatingHearts(ctx, now, 5, 200, 68, 28, ['💗','💕','🌸']);
+    sceneText(ctx, '🍲 cozy kitchen', 174, 20, 'rgba(255,200,160,0.75)', 8);
+
+  // ── PHASE 2: Train memory ──────────────────────────────────────
+  } else if (phase === 2) {
+    // Platform night/sunset blend
+    const platSky = ctx.createLinearGradient(0, 0, 0, 120);
+    if (ease < 0.5) {
+      platSky.addColorStop(0, '#050d1e'); platSky.addColorStop(1, '#0d1a2e');
+    } else {
+      const t = (ease - 0.5) * 2;
+      platSky.addColorStop(0, `rgba(${Math.floor(lerp(5,200,t))},${Math.floor(lerp(13,80,t))},${Math.floor(lerp(30,40,t))},1)`);
+      platSky.addColorStop(1, '#2a1240');
+    }
+    ctx.fillStyle = platSky; ctx.fillRect(0, 0, W, 120);
+
+    // Platform
+    ctx.fillStyle = '#888'; ctx.fillRect(0, 106, W, H - 106);
+    ctx.fillStyle = '#aaa'; ctx.fillRect(0, 104, W, 6);
+    ctx.fillStyle = '#ffd700'; ctx.fillRect(0, 120, W, 4);
+    for (let rx = 0; rx < W; rx += 28) { ctx.fillStyle = '#5a3a18'; ctx.fillRect(rx, 142, 20, 26); }
+    ctx.fillStyle = '#888'; ctx.fillRect(0, 146, W, 4); ctx.fillRect(0, 158, W, 4);
+
+    // Platform lights
+    for (let i = 0; i < 5; i++) {
+      const plx = 44 + i * 92;
+      ctx.fillStyle = '#4a4a4a'; ctx.fillRect(plx - 2, 76, 4, 30);
+      const plGrd = ctx.createRadialGradient(plx, 74, 0, plx, 74, 32);
+      plGrd.addColorStop(0, 'rgba(255,230,160,0.22)'); plGrd.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = plGrd; ctx.fillRect(plx - 32, 42, 64, 64);
+      ctx.fillStyle = '#ffe07a'; ctx.fillRect(plx - 4, 70, 8, 6);
+    }
+
+    // Animated dream train
+    const trainX = lerp(W + 20, 88, ease);
+    // Train glow aura
+    const tGrd = ctx.createRadialGradient(trainX + 76, 86, 0, trainX + 76, 86, 70);
+    tGrd.addColorStop(0, 'rgba(180,220,255,0.10)'); tGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = tGrd; ctx.fillRect(trainX + 6, 16, 140, 140);
+    // Train body
+    const trainBodyGrd = ctx.createLinearGradient(trainX, 62, trainX, 110);
+    trainBodyGrd.addColorStop(0, '#1976d2'); trainBodyGrd.addColorStop(1, '#1565c0');
+    ctx.fillStyle = trainBodyGrd; ctx.fillRect(trainX, 62, 160, 50);
+    ctx.fillStyle = '#0d47a1'; ctx.fillRect(trainX, 62, 160, 10);
+    // Windows
+    for (let i = 0; i < 4; i++) {
+      const wgrd = ctx.createLinearGradient(trainX + 8 + i * 36, 72, trainX + 8 + i * 36, 96);
+      wgrd.addColorStop(0, '#fff9e6'); wgrd.addColorStop(1, '#ffe0a0');
+      ctx.fillStyle = wgrd; ctx.fillRect(trainX + 8 + i * 36, 72, 28, 24);
+    }
+    ctx.fillStyle = '#f57f17'; ctx.fillRect(trainX, 62, 14, 50);
+    ctx.fillStyle = '#ffd700'; ctx.fillRect(trainX + 2, 108, 156, 4);
+    // Wheels
+    for (let i = 0; i < 3; i++) {
+      ctx.fillStyle = '#111';
+      ctx.beginPath(); ctx.ellipse(trainX + 22 + i * 54, 114, 9, 9, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#555';
+      ctx.beginPath(); ctx.ellipse(trainX + 22 + i * 54, 114, 5, 5, 0, 0, Math.PI * 2); ctx.fill();
+    }
+    // Motion blur streaks
+    if (ease < 0.7) {
+      const blurAlpha = (0.7 - ease) * 0.5;
+      for (let i = 1; i <= 4; i++) {
+        ctx.fillStyle = `rgba(100,160,255,${blurAlpha / i})`;
+        ctx.fillRect(trainX + 14 + i * 6, 62, 160 - i * 6, 50);
+      }
+    }
+
+    drawCharacter(ctx, 'pranjal', 50 + Math.sin(now / 200) * 2, 88, { pose: 'point' }, now);
+    drawCharacter(ctx, 'fareeza', 354 - Math.sin(now / 220) * 2, 88, { pose: 'point' }, now);
+
+    sceneText(ctx, '🚉 train memory', 172, 20, 'rgba(180,210,255,0.75)', 8);
+
+  // ── PHASE 3: Dandelion ending ──────────────────────────────────
+  } else {
+    // Warm golden field
+    const fieldGrd = ctx.createLinearGradient(0, 100, 0, H);
+    fieldGrd.addColorStop(0, '#c87828'); fieldGrd.addColorStop(1, '#7a4010');
+    ctx.fillStyle = fieldGrd; ctx.fillRect(0, 100, W, H - 100);
+    // Grass blades
+    for (let gx = 0; gx < W; gx += 8) {
+      const gh = 12 + Math.sin(now / 600 + gx * 0.1) * 4 + (gx % 24) * 0.3;
+      ctx.strokeStyle = `rgba(${150 + Math.floor(gx * 0.1 % 30)},${100 + Math.floor(Math.sin(gx) * 20)},20,0.7)`;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(gx, 104);
+      ctx.quadraticCurveTo(gx + Math.sin(now / 700 + gx * 0.08) * 6, 96, gx + Math.sin(now / 700 + gx * 0.08) * 10, 100 - gh);
+      ctx.stroke();
+    }
+    // Horizon glow
+    const horizGrd = ctx.createLinearGradient(0, 86, 0, 110);
+    horizGrd.addColorStop(0, 'rgba(255,160,60,0)'); horizGrd.addColorStop(0.4, 'rgba(255,180,60,0.4)');
+    horizGrd.addColorStop(1, 'rgba(200,100,20,0)');
+    ctx.fillStyle = horizGrd; ctx.fillRect(0, 86, W, 24);
+
+    // Dandelion seeds floating (many, varied sizes)
+    for (let i = 0; i < 28; i++) {
+      const t = (now / 300 + i * 0.62) % (Math.PI * 2);
+      const seedX = ((i * 37 + now / 22) % (W + 40)) - 20;
+      const seedY = 20 + i * 5 % 90 + Math.sin(t + i) * 10;
+      const alpha = 0.4 + 0.5 * Math.abs(Math.sin(t * 0.7));
+      const size = 4 + (i % 4) * 2;
+      ctx.fillStyle = `rgba(255,255,240,${alpha})`;
+      // Seed circle
+      ctx.beginPath(); ctx.arc(seedX, seedY, size * 0.25, 0, Math.PI * 2); ctx.fill();
+      // Filaments
+      ctx.strokeStyle = `rgba(255,255,240,${alpha * 0.7})`;
+      ctx.lineWidth = 0.7;
+      for (let f = 0; f < 5; f++) {
+        const fa = f * Math.PI * 2 / 5 + t * 0.2;
+        ctx.beginPath();
+        ctx.moveTo(seedX, seedY);
+        ctx.lineTo(seedX + Math.cos(fa) * size, seedY + Math.sin(fa) * size);
+        ctx.stroke();
+      }
+    }
+
+    // Flowers in the field
+    const flowerPos = [[60,110],[130,118],[220,106],[310,112],[390,116]];
+    flowerPos.forEach(([fx, fy]) => {
+      ctx.strokeStyle = '#5a8a30'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(fx, fy); ctx.lineTo(fx + Math.sin(now / 900 + fx * 0.1) * 4, fy - 14); ctx.stroke();
+      ctx.fillStyle = '#ffe070';
+      ctx.beginPath(); ctx.arc(fx + Math.sin(now / 900 + fx * 0.1) * 4, fy - 15, 4, 0, Math.PI * 2); ctx.fill();
+    });
+
+    drawCharacter(ctx, 'pranjal', 130 + Math.sin(now / 250) * 2, 88, { pose: 'idle' }, now);
+    drawCharacter(ctx, 'fareeza', 298 - Math.sin(now / 270) * 2, 88, { pose: 'idle' }, now);
+
+    // Warm glow around them
+    const coupleGrd = ctx.createRadialGradient(214, 90, 0, 214, 90, 64);
+    coupleGrd.addColorStop(0, 'rgba(255,200,80,0.15)'); coupleGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = coupleGrd; ctx.fillRect(150, 26, 128, 128);
+
+    sceneText(ctx, '🌼 promise. future. together.', 142, 20, 'rgba(255,240,180,0.85)', 8);
+  }
+
+  // Phase caption at top
+  const captions = ['a bicycle arrives at her door', 'steam rises in the quiet kitchen', 'a dream-train crosses the night', 'the ending stays warm forever'];
+  ctx.fillStyle = 'rgba(0,0,0,0.4)'; ctx.fillRect(68, 6, 316, 16);
+  sceneText(ctx, captions[phase], 76, 18, phase === 3 ? '#fff2d0' : '#ffd9e7', 7);
+
+  if (!Number.isFinite(elapsed) || elapsed < 0) {
+    ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(0, 0, W, H);
+    sceneText(ctx, 'dream loading...', 170, 95, '#ffd9e7', 10);
+  }
+}
+
+function playSceneMotionAndDraw(kind, duration, meta) {
+  playSceneMotion(kind, duration, meta);
+  if (currentLoc && currentLoc !== 'dream') {
+    drawScene(currentLoc);
+  }
+}
+
+
+window.leaveRoom = async () => {
+  try { clearTyping(); } catch (_) {}
+  clearRoomListeners();
+  stopSceneLoop();
+  stopDreamLoop();
+  roomCode = null;
+  roomRef = null;
+  currentLoc = null;
+  hearts = 2;
+  updateHeartsBar();
+  document.getElementById('chat-area').innerHTML = '';
+  const fx = document.querySelector('.romance-fx'); if (fx) fx.remove();
+  document.getElementById('typing-indicator').classList.remove('visible');
+  document.getElementById('join-code-input').value = '';
+  dreamUnlockShown = false;
+  try {
+    localStorage.removeItem(STORAGE_ROOM);
+  } catch (_) {}
+  showScreen('s-join');
+  document.getElementById('room-panel').style.display = myRole ? 'block' : 'none';
+  if (myRole) {
+    document.getElementById('room-panel-title').textContent = `HEY ${myRole}! CREATE OR JOIN?`;
+  }
+  showToast('left the room');
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadSession();
+});
+
+window.addEventListener('error', (event) => {
+  const msg = event?.error?.message || event?.message || 'unknown error';
+  showToast(`JS error: ${msg}`, 3500);
+});
+
+
+window.addEventListener('beforeunload', () => {
+  try { clearTyping(); } catch (_) {}
+  clearRoomListeners();
+  stopSceneLoop();
+  stopDreamLoop();
+});
+</script>
+</body>
+</html>
